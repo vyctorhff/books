@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Testando2.xml
+    Created on : 30 de Dezembro de 2005, 14:45
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE Mensagem [
+        <!ELEMENT Mensagem (de, para,destino)>
+        <!ELEMENT de (#PCDATA)>
+        <!ELEMENT para (#PCDATA)>
+        <!ELEMENT destino (#PCDATA)>
+        ]>
+<Mensagem>
+    <de>Victor Hugo</de>
+    <para>Albeisa Cleyse</para>
+    <destino>Parnamirim</destino>
+</Mensagem>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ExecEsquemaW3c.xml
+    Created on : 18 de Dezembro de 2005, 18:50
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+
+<MinhaMessagem xmlns:xsd="http://www.w3.org/2000/XMLSchema-instance"
+               xsd:noNamespaceSchemaLocation="xml-EsquemaW3c.xsd">
+    <agradecimento>Olha to mundo</agradecimento>
+    <mensagem>Feliz Natal</mensagem>
+</MinhaMessagem>

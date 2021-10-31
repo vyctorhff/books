@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <!--
+            Document   : message.dtd
+            Created on : 9 de Dezembro de 2005, 16:04
+            Author     : aluno
+            Description:
+                Purpose of the document follows.
+
+            TODO define vocabulary identification data
+            PUBLIC ID  : -//vendor//vocabulary//EN
+            SYSTEM ID  : http://server/path/message.dtd
+        -->
+
+        <!-- TODO define your own vocabulary/syntax. Example follows:  -->
+        <!ELEMENT Mymessage (message)>
+        <!ELEMENT message (#PCDATA)>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Testando1.xml
+    Created on : 30 de Dezembro de 2005, 15:21
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE Mensagem [
+        <!ELEMENT Mensagem (de, para)>
+        <!ELEMENT de (#PCDATA)>
+        <!ELEMENT para (#PCDATA)>
+        ]>
+<Mensagem>
+    <de>Victor Hugo</de>
+    <para>Joana Darc</para>
+</Mensagem>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <!--
+            Document   : bookstore.dtd
+            Created on : 9 de Dezembro de 2005, 16:39
+            Author     : aluno
+            Description:
+                Purpose of the document follows.
+
+            TODO define vocabulary identification data
+            PUBLIC ID  :
+            SYSTEM ID  : bookstore.dtd
+        -->
+
+        <!-- TODO define your own vocabulary/syntax. Example follows:  -->
+        <!ELEMENT Bookstore (shipping+, book)>
+
+        <!ELEMENT shipping (duration)>
+        <!ATTLIST shipping shipID ID #REQUIRED>
+        <!ELEMENT duration (#PCDATA)>
+
+        <!ELEMENT book (#PCDATA)>
+        <!ATTLIST book shipBY IDREF #IMPLIED>

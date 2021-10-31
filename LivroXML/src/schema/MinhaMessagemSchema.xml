@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MinhaMessagemSchema.xml
+    Created on : 16 de Dezembro de 2005, 22:42
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+
+<MinhaMessagem xmlns="x-schema:MastrandoElemento.xsd">
+    <agradecimento>Agradeço a todos</agradecimento>
+    <messagem>Ola a todos</messagem>
+</MinhaMessagem>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : EspacoBranco.xml
+    Created on : 16 de Dezembro de 2005, 20:55
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE EspacoBranco SYSTEM "EspacoBranco.dtd">
+<EspacoBranco>
+    <hasCDATA cdata="cdata simples"/>
+    <hasId id="422"/>
+    <hasNMTOKEN nmtoken="ola"/>
+    <hasENUMERATION enumeration="true"/>
+    <hasMIXED>
+        Este é o texto
+        <hasCDATA cdata="cdata simples"/>
+    </hasMIXED>
+</EspacoBranco>

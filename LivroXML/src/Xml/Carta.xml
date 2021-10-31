@@ -1,0 +1,33 @@
+<?xml version = "1.0"?>
+
+<carta>
+    <contato tipo="from">
+        <name>Victor Hugo</name>
+        <endereco1>Bloco 33</endereco1>
+        <endereco2>Neopolis</endereco2>
+        <cidade>Natal</cidade>
+        <estado>RN</estado>
+        <fone>2342323616</fone>
+    </contato>
+
+    <contato tipo="de">
+        <name>Albeisa Cleyse</name>
+        <endereco1>rua tal.</endereco1>
+        <endereco2>Coabinal</endereco2>
+        <cidade>Parnamirim</cidade>
+        <estado>RN</estado>
+        <fone>12611324234</fone>
+    </contato>
+
+    <saldacao>Ola, como vai</saldacao>
+    <paragrafo>Diga cara tudo beleza. Continue assim</paragrafo>
+    <paragrafo>O dado em um elemento xml e normalizado, o diagramo
+        /---\
+        | |
+        \---/
+    </paragrafo>
+
+    <closing>Atenciosamente</closing>
+    <assinado>Eu mesmo</assinado>
+</carta>
+		

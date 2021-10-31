@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : ExecProdutos.xml
+    Created on : 18 de Dezembro de 2005, 19:13
+    Author     : Victor Hugo
+    Description:
+        Exercicio pagina 234;
+-->
+<produtos xmlns="xml-schema:xml-ExecProdutos.xsd">
+    <produto id="p1" perecivel="yes">
+        <nome>Sorvetes</nome>
+        <manufaturado>Kibom</manufaturado>
+        <quantidade>2</quantidade>
+        <preco>10</preco>
+
+        <comida>
+            <nuticional>
+                <calcio>10.30</calcio>
+                <proteinas>35.3</proteinas>
+                <gordura>10</gordura>
+            </nuticional>
+            <validade>20/5/2007</validade>
+        </comida>
+    </produto>
+
+    <produto id="p2" perecivel="no">
+        <nome>Ovomaltine</nome>
+        <manufaturado>Quaker</manufaturado>
+        <quantidade>6</quantidade>
+        <preco>3</preco>
+
+        <estoque>
+            <armazem id="a">Bloco f</armazem>
+            <armazem id="d">Bloco d</armazem>
+        </estoque>
+    </produto>
+</produtos>

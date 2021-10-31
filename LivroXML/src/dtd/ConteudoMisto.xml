@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+
+<!--
+    Document   : ConteudoMisto.xml
+    Created on : 16 de Dezembro de 2005, 20:28
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE formato SYSTEM "formato.dtd">
+<formato>
+    Utilizando o possibilidade do #pcdata
+    <negrito>Esta parte e negrito</negrito>
+    <italico>Italico</italico>
+</formato>

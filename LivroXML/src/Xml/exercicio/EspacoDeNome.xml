@@ -1,0 +1,17 @@
+<?xml version = "1.0"?>
+
+<diretorio xmlns:text="urn:deitel:textInfo"
+           xmlns:image="urn:deitel:imageInfo">
+
+    <text:file filename="book.xml">
+        <text:description>Lista dos livros</text:description>
+    </text:file>
+
+    <image:file filename="funny.jpg">
+        <image:description>Uma foto engracada</image:description>
+        <image:size width="200" height="100"/>
+    </image:file>
+</diretorio>
+
+        <!-- Um espa�o de nome faz com que sejam diferentes duas tag iguais.
+        Embora essas tag tenham o mesmo nome, elas representam objetos diferentes logo n�o podem ser o mesmo objeto-->

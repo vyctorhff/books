@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <!--
+            Document   : Formato.dtd
+            Created on : 16 de Dezembro de 2005, 20:33
+            Author     : Victor Hugo
+            Description:
+                Purpose of the document follows.
+
+            TODO define vocabulary identification data
+            PUBLIC ID  : -//vendor//vocabulary//EN
+            SYSTEM ID  : http://server/path/Formato.dtd
+        -->
+
+        <!-- TODO define your own vocabulary/syntax. Example follows:  -->
+        <!ELEMENT formato (#PCDATA | negrito | italico)*>
+        <!ELEMENT negrito (#PCDATA)>
+        <!ELEMENT italico (#PCDATA)>
+

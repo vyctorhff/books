@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ExecProduto.xsd
+    Created on : 18 de Dezembro de 2005, 19:38
+    Author     : Victor Hugo
+    Description:
+        Este schema é da microsoftware;
+        Fazer alguma referencia ao datatype
+-->
+
+<:schema xmlns:dt="urn:schemas-microsoftware-com:datatypes"
+         xmlns="urn:schemas-microsoftware-com:xml-data">
+    <ElementType name="produtos" content="mixed" model="closed">
+        <element type="produto" maxOccurs="1"/>
+    </ElementType>
+
+    <ElementType name="produto" content="eltOnly" model="closed">
+        <AttributeType name="id" dt:type="id" required="yes"/>
+        <attribute type="id"/>
+        <AttributeType name="perecivel" dt:type="boolean" default="no"/>
+        <attribute type="perecivel"/>
+
+        <element type="name" maxOccurs="1"/>
+        <element type="quantidade" maxOccurs="1"/>
+        <element type="manufaturado" maxOccurs="1"/>
+        <element type="preco" maxOccurs="1"/>
+        <element type="estoque" minOccurs="0" maxOccurs="1"/>
+    </ElementType>
+
+    <!-- Filhos de produto-->
+    <ElementType name="name" content="textOnly" model="closed"/>
+    <ElementType name="quantidade" content="textOnly" model="closed"/>
+    <ElementType name="manufaturado" content="textOnly" model="closed"/>
+    <ElementType name="preco" content="textOnly" model="closed"/>
+
+    <ElementType name="estoque" content="eltOnly" model="closed">
+        <element type="armazem" maxOccurs="2"/>
+    </ElementType>
+
+    <ElementType name="comida" content="eltOnly" model="closed">
+        <element type="nutricional" maxOccurs="2"/>
+        <element type="validade" maxOccurs="1"/>
+    </ElementType>
+
+    <!--Filho de estoque-->
+    <ElementType name="armazem" conten="mixed" model="closed">
+        <AttributeType name="id" required="yes" dt:type="id"/>
+        <attribute type="id"/>
+    </ElementType>
+
+    <ElementType name="nutricional" content="eltOnly" model="closed">
+        <element type="calcio" maxOccurs="1"/>
+        <element type="proteina" maxOccurs="1"/>
+        <element type="gordura" maxOccurs="1"/>
+    </ElementType>
+
+    <ElementType name="validade" content="textOnly" model="closed"/>
+
+    <!--Filhos de nutricional-->
+    <ElementType name="calcio" content="textoOnly" model="closed"/>
+    <ElementType name="proteina" content="textoOnly" model="closed"/>
+    <ElementType name="gordura" content="textoOnly" model="closed"/>
+
+
+</:schema>
+    

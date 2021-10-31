@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Mymessage.xml
+    Created on : 9 de Dezembro de 2005, 16:02
+    Author     : aluno
+    Description:
+        Purpose of the document follows.
+-->
+<!DOCTYPE Mymessage SYSTEM "message.dtd">
+
+<Mymessage>
+    <message>Olha ai</message>
+</Mymessage>

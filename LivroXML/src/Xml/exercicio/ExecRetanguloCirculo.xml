@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ExecRetanguloCirculo.xml
+    Created on : 10 de Janeiro de 2006, 15:31
+    Author     : aluno
+    Description:
+        Xml para o exercicio 8.6
+-->
+<!DOCTYPE figure [
+        <!ELEMENT figure (rectangle*,circle*)>
+        <!ELEMENT rectangle (#PCDATA)>
+        <!ATTLIST rectangle x CDATA #REQUIRED
+                y CDATA #REQUIRED
+                width CDATA #REQUIRED
+                heigth CDATA #REQUIRED>
+        <!ELEMENT circle (#PCDATA)>
+        <!ATTLIST circle x CDATA #REQUIRED
+                y CDATA #REQUIRED
+                radius CDATA #REQUIRED>
+        ]>
+
+<figure>
+    <rectangle x="50" y="50" width="100" heigth="100"></rectangle>
+    <circle x="300" y="250" radius="200"></circle>
+</figure>

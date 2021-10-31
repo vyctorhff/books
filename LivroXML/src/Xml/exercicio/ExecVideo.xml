@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ExecVideo.xml
+    Created on : 16 de Dezembro de 2005, 21:14
+    Author     : Victor Hugo
+    Description:
+        Testa esta de acordo com o dtd ExecVideo do livro
+-->
+<!DOCTYPE ExecVideo SYSTEM "ExecVideo.dtd">
+<database>
+    <livro livroID="1">
+        <autor>Fulano</autor>
+        <imagem>Nada</imagem>
+        <conteudo>
+            <capitolo>2</capitolo>
+            <descricao>
+                <secao>8</secao>
+                <revisao>beltrano</revisao>
+                <sumario>seila</sumario>
+            </descricao>
+        </conteudo>
+        <novocapitolo>
+            <capitolo>5</capitolo>
+            <descricao>
+                <secao>7</secao>
+                <revisao>Cicrano</revisao>
+                <sumario>coisa e tal</sumario>
+            </descricao>
+        </novocapitolo>
+    </livro>
+</database>

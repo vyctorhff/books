@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <!--
+            Document   : Condicional.dtd
+            Created on : 16 de Dezembro de 2005, 20:38
+            Author     : Victor Hugo
+            Description:
+                Purpose of the document follows.
+
+            TODO define vocabulary identification data
+            PUBLIC ID  : -//vendor//vocabulary//EN
+            SYSTEM ID  : http://server/path/Condicional.dtd
+        -->
+
+        <!-- TODO define your own vocabulary/syntax. Example follows:  -->
+        <!ENTITY % rejeita "IGNORE";>
+        <!ENTITY % aceito "INCLUDE";>
+
+        <![ %aceita; [
+                <!ELEMENT messagem (aprovada, assinatura)>
+                ] ]>
+        <![ %rejeita; [
+                <!ELEMENT messagem (aprovada, racao, assinatura)>
+                ]]>
+
+        <!ELEMENT aprovada EMPTY>
+        <!ATTLIST aprovada flag (true | false ) "false">
+        <!ELEMENT racao (#PCDATA)>
+        <!ELEMENT assinatura
+

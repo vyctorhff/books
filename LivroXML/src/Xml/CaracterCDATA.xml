@@ -1,0 +1,19 @@
+<?xml version = "1.0"?>
+
+<book titulo="C++ como programar">
+    <sample>
+        //coment�rio C++
+        if( this-&gt;getX() &lt; 5 &amp;&amp; value[0] !=3)
+        cerr &lt;&lt; this-&gt;displayError();
+    </sample>
+
+    <sample>
+        <!--Esta codigo e para mostrar o caracter normalmte, pois o cdata podesse usar os caracteris especiais-->
+        <![CDATA[
+		
+			//COMENTARIO c++
+			if(this->getX() < 5 && value[0] !=3)
+				cerr<< this->dispalyError();
+		]]>
+    </sample>
+</book>

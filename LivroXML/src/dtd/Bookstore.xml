@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Bookstore.xml
+    Created on : 9 de Dezembro de 2005, 16:50
+    Author     : aluno
+    Description:
+        Purpose of the document follows.
+-->
+
+<Bookstore>
+    <shipping shipID="s1">
+        <duration>2 of 4 day</duration>
+    </shipping>
+
+    <shipping shipID="s2">
+        <duration>4 day</duration>
+    </shipping>
+
+    <shipping shipID="s3">
+        <duration>1 day</duration>
+    </shipping>
+
+    <book shipBY="s2">XML Como programar</book>
+
+    <book shipBY="s2">Linux</book>
+
+    <book shipBY="s2">Java como programar</book>
+</Bookstore>

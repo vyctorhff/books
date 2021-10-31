@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Atributos.xsd
+    Created on : 16 de Dezembro de 2005, 22:48
+    Author     : Victor Hugo
+    Description:
+        Purpose of XML Schema document follows.
+-->
+
+<Schema xmlns="urn:schemas-microsoft-com:xml-data">
+    <ElementType name="contato" content="eltOnly" order="seq" model="closed">
+        <AttributeType name="proprietario" required="yes"/>
+        <attribute type="proprietario"/>
+
+        <element type="name"/>
+        <element type="endereco"/>
+        <element type="cidade"/>
+        <element type="estado"/>
+        <element type="cep"/>
+        <element type="fone" minOccurs="1"/>
+    </ElementType>
+
+    <ElementType name="name" content="textOnly" model="closed"/>
+    <ElementType name="endereco" content="textOnly" model="closed"/>
+    <ElementType name="cidade" content="textOnly" model="closed"/>
+    <ElementType name="estado" content="textOnly" model="closed"/>
+    <ElementType name="cep" content="textOnly" model="closed"/>
+    <ElementType name="fone" content="textOnly" model="closed">
+        <AttributeType name="local" default="home"/>
+        <attribute type="local"/>
+    </ElementType>
+</Schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+
+<!--
+    Document   : Testando.xml
+    Created on : 22 de Dezembro de 2005, 12:07
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+        SYSTEM "MyMessage.dtd"
+-->
+<!DOCTYPE MyMessage [
+        <!ELEMENT MyMessage (message)>
+        <!ELEMENT message (#PCDATA)>
+        ]>
+
+<MyMessage>
+    <message>Primeiro</message>
+</MyMessage>

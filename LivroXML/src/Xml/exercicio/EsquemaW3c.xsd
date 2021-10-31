@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : EsquemaW3c.xsd
+    Created on : 18 de Dezembro de 2005, 18:42
+    Author     : Victor Hugo
+    Description:
+        Este esquema e valido pelo w3c.
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="MinhaMensagem" type="MinhaMensagem"/>
+
+    <xsd:complexType name="MinhaMensagem">
+        <xsd:element ref="agradecimento" minOccurs="0"/>
+        <xsd:element ref="message" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:complexType>
+
+    <xsd:element name="agradecimento" type="xsd:string"/>
+    <xsd:element name="mensagem" type="xsd:string"/>
+</xsd:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : AtributoSchema.xml
+    Created on : 16 de Dezembro de 2005, 23:01
+    Author     : Victor Hugo
+    Description:
+        Purpose of the document follows.
+-->
+
+<AtributoSchema xmlns="x-schema:Atributos.xsd" proprietario="Victor">
+    <name>Albeisa</name>
+    <endereco>Coabinal</endereco>
+    <cidade>Parnamirim</cidade>
+    <estado>Rio grande do norte</estado>
+    <cep>456789150</cep>
+    <fone local="casa">9988778844</fone>
+</AtributoSchema>

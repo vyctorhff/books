@@ -1,0 +1,21 @@
+<?xml version = "1.0"?>
+
+<!DOCTYPE welcome SYSTEM "lang.dtd">
+
+<welcome>
+    <from>
+        <!--Deitel e Associados-->
+        &#1583;&#1575;&#1610;&#1578;&#1614;&#1604;
+
+        <!--Entidades-->
+        &assoc;
+    </from>
+
+    <subjec>
+        <!--Nome em unico-->
+        &#1571;&#1607;&#1604;&#1575;&#1611;
+        &#1576;&#1603;&#1605;
+
+        &text;
+    </subjec>
+</welcome>

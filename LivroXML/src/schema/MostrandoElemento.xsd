@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MostrandoElemento.xsd
+    Created on : 16 de Dezembro de 2005, 22:30
+    Author     : Victor Hugo
+    Description:
+        Este esquema é foi projetado pela Microsoftware
+        Neste caso, temos tres definições de ElementType. Cada definição cria os elementos 
+        para serem usados. Antes de usar devesse criar 'messagem' e 'agradecimento'.
+-->
+
+<Schema xmlns="urn:schemas-microsoft-com:xml-data">
+    <!--textOnly indica que so pode conter elemeno -->
+    <ElementType name="messagem" content="textOnly" model="closed">
+        <description>message de texto</description>
+    </ElementType>
+    <!--mixed: pode conter tanto elementos como texto -->
+    <ElementType name="agradecimento" content="mixed" model="closed">
+        <element type="messagem"/>
+    </ElementType>
+
+    <ElementType name="MinhaMessagem" model="closed" maxOccurs="1">
+        <element type="agradecimento" minOccurs="0"/>
+        <element type="messagem" minOccurs="0"/>
+    </ElementType>
+</Schema>

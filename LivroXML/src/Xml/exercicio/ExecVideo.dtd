@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <!--
+            Document   : ExecVideo.dtd
+            Created on : 16 de Dezembro de 2005, 21:02
+            Author     : Victor Hugo
+            Description:
+                Purpose of the document follows.
+
+            TODO define vocabulary identification data
+            PUBLIC ID  : -//vendor//vocabulary//EN
+            SYSTEM ID  : http://server/path/ExecVideo.dtd
+        -->
+
+        <!-- TODO define your own vocabulary/syntax. Example follows:  -->
+        <!ELEMENT database (livro)+>
+
+        <!ENTITY HD "Havery Deitel">
+        <!ENTITY PD "Paul Deitel">
+        <!ENTITY TN "Tem Nieto">
+
+        <!ENTITY % CH "(capitulo, descricao)">
+
+        <!ELEMENT livro (autor+, imagme*, conteudo, novocapitolo*)>
+        <!ATTLIST livro livroID ID #REQUIRED>
+
+        <!ELEMENT autor (#PCDATA)>
+
+        <!ELEMENT imagem (#PCDATA)>
+
+        <!ELEMENT conteudo %CH;>
+
+        <!ELEMENT novocapitolo %CH;>
+        <!ATTLIST novocapitolo added (true | false) "false">
+
+        <!ELEMENT capitolo (#PCDATA)>
+        <!ATTLIST capitolo numero CDATA #REQUIRED>
+
+        <!ELEMENT descricao (secao*, revisao*, sumario?)>
+
+        <!ELEMENT secao (#PCDATA)>
+
+        <!ELEMENT revisao (#PCDATA)>
+
+        <!ELEMENT sumario (#PCDATA)>
+
+
