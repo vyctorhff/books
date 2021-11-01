@@ -12,7 +12,7 @@ O coelho pode dormir, nesse não se movimenta.
 O coelho pode distrair com algo, nesse não se movimenta.
 O coelho pode conversar com alguém, nesse não se movimenta.
 
-O coelho pode andar de 1-4 posições por vez.
+O coelho pode andar de 1-5 posições por vez.
 O coelho será representado por 'L'.
 
 ### Regras para a tartaruga

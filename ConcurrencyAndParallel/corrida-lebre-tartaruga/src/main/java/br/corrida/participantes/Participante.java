@@ -28,8 +28,6 @@ public abstract class Participante implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("Partil a/o " + nome + "!");
-		
 		while (!pista.hasVencedor()) {
 			this.pista.avancar(this, lancarDado());
 			this.esperarRodada();

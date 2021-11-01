@@ -4,9 +4,9 @@ import br.corrida.util.Dado;
 
 public class SorteCoelho {
 
-    public static final int PERCENTUAL_CONVERSOU = 2;
-    public static final int PERCENTUAL_DISTRAIU = 2;
-    public static final int PERCENTUAL_DORMIU = 3;
+    public static final int PERCENTUAL_CONVERSOU = 3;
+    public static final int PERCENTUAL_DISTRAIU = 3;
+    public static final int PERCENTUAL_DORMIU = 4;
 
     private final Dado dado;
 

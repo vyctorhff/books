@@ -7,8 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 public class CorridaPrinter {
 	
 	private boolean passouUmaVez;
-	
 	private boolean passouDuasVez;
+
 	private Integer rodada;
 
 	public CorridaPrinter() {
@@ -24,13 +24,13 @@ public class CorridaPrinter {
 		registrarPassagem();
 		
 		if (isOsDoisPassaram()) {
-			printRoda();
 			printProgresso(posicao, participante);
 			
 			if (posicao.hasDoisParticipantes()) {
 				out("Ai!!!");
 			}
 
+			printRoda();
 			reset();
 		} else {
 			printProgresso(posicao, participante);
@@ -41,7 +41,6 @@ public class CorridaPrinter {
 		rodada += 1;
 
 		out("Roda: " + rodada);
-		blank();
 	}
 
 	private boolean isOsDoisPassaram() {

@@ -26,7 +26,7 @@ public class Posicao {
 	}
 	
 	public void remover(Participante participante) {
-		if (p1 != null && p1.equals(participante)) {
+		if (participante.equals(p1)) {
 			this.p1 = null;
 		} else {
 			this.p2 = null;

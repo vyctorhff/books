@@ -6,8 +6,8 @@ import br.corrida.util.Dado;
 public class Coelho extends Participante {
 
 	private static final int NAO_AVANCA = 0;
-	public static final int NUMERO_MINIMO_AVANCO = 0;
-	public static final int NUMERO_MAIOR_AVANCO = 4;
+	public static final int NUMERO_MINIMO_AVANCO = 1;
+	public static final int NUMERO_MAIOR_AVANCO = 5;
 
 	public static final String NOME = "Coelho";
 	public static final String SIMBOLO = "C";
