@@ -5,8 +5,8 @@ import br.corrida.ambiente.Pista;
 public class ParticipanteNulo extends Participante {
 
 	// TODO: altera para o padrão nullobjet
-	public ParticipanteNulo(String nome, Pista pista, int posicaoMinima, int posicaoMaxima) {
-		super(nome, pista, posicaoMinima, posicaoMaxima);
+	public ParticipanteNulo(String nome, Pista pista) {
+		super(nome, pista);
 	}
 
 	@Override

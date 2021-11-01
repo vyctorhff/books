@@ -9,6 +9,11 @@ public class CorridaPrinter {
 	private boolean passouUmaVez;
 	
 	private boolean passouDuasVez;
+	private Integer rodada;
+
+	public CorridaPrinter() {
+		this.rodada = 0;
+	}
 
 	public void largada() {
 		out("BANG, a corrida começou!!!!!");
@@ -19,16 +24,24 @@ public class CorridaPrinter {
 		registrarPassagem();
 		
 		if (isOsDoisPassaram()) {
+			printRoda();
 			printProgresso(posicao, participante);
 			
 			if (posicao.hasDoisParticipantes()) {
 				out("Ai!!!");
 			}
-			
+
 			reset();
 		} else {
 			printProgresso(posicao, participante);
 		}
+	}
+
+	private void printRoda() {
+		rodada += 1;
+
+		out("Roda: " + rodada);
+		blank();
 	}
 
 	private boolean isOsDoisPassaram() {

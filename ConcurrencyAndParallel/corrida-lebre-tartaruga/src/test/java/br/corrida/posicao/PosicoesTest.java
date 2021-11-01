@@ -1,6 +1,7 @@
 package br.corrida.posicao;
 
 import br.corrida.ambiente.Pista;
+import br.corrida.participantes.Coelho;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +33,10 @@ class PosicoesTest {
 
 	@Test
 	void test_has_parcitipante_na_ultima_posicao() {
-		fail();
+		assertFalse(posicoes.hasParcipanteNaUltimaPosicao());
+
+		posicoes.getUltima().adicionar(new Coelho(null));
+		assertTrue(posicoes.hasParcipanteNaUltimaPosicao());
 	}
 	
 	@Test

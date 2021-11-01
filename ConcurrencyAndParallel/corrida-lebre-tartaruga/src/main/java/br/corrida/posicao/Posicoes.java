@@ -47,4 +47,8 @@ public class Posicoes {
 		}
 		return this.posicoes.get(posicao.getIndice() + avanco);
 	}
+
+	public boolean hasParcipanteNaUltimaPosicao() {
+		return getUltima().hasAlgumParticipante();
+	}
 }

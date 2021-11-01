@@ -4,12 +4,20 @@
 
 A cada segundo a posição dos participantes deve ser atualizada.
 
-O coelho pode escorregar, nesse caso ele volta uma posição.
-O coelho pode dormir, nesse não se movimenta.
-O coelho pode andar de 0-4 posições por vez.
-O coelho será representado por L.
+### Regras para o coelho
 
-A tartaruga será representado por T.
+O coelho pode escorregar, nesse caso ele volta uma posição.
+
+O coelho pode dormir, nesse não se movimenta.
+O coelho pode distrair com algo, nesse não se movimenta.
+O coelho pode conversar com alguém, nesse não se movimenta.
+
+O coelho pode andar de 1-4 posições por vez.
+O coelho será representado por 'L'.
+
+### Regras para a tartaruga
+
+A tartaruga será representado por 'T'.
 O coelho pode andar de 1-2 posições por vez.
 Se a tartaruga estiver na mesma posição do coelho, ela morde o coelho, e printa 'AI!!!'.
 

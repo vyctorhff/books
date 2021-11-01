@@ -14,24 +14,15 @@ public abstract class Participante implements Runnable {
 	private final static int TEMPO_ESPERA_RODADA = 2000;
 	
 	protected String nome;
-	
 	protected Pista pista;
-	private final int posicaoMinima;
-	private final int posicaoMaxima;
-
 	protected Posicao posicao;
 
-	public Participante(String nome, Pista pista, int posicaoMinima, int posicaoMaxima) {
+	public Participante(String nome, Pista pista) {
 		this.nome = nome;
 		this.pista = pista;
-
-		this.posicaoMinima = posicaoMinima;
-		this.posicaoMaxima = posicaoMaxima;
 	}
 
-	public int lancarDado() {
-		return new Dado().lancar(posicaoMinima, posicaoMaxima);
-	}
+	public abstract int lancarDado();
 
 	public abstract String getSimbolo();
 

@@ -41,6 +41,6 @@ public class Pista {
 	}
 	
 	public boolean hasVencedor() {
-		return posicoes.getUltima().hasAlgumParticipante();
+		return posicoes.hasParcipanteNaUltimaPosicao();
 	}
 }
