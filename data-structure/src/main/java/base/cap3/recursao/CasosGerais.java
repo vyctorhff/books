@@ -57,5 +57,4 @@ public class CasosGerais {
         return inverteArranhoHelper(arranjo, ++indice, arranjoInvertido, --indiceInvertido);
     }
 
-
 }

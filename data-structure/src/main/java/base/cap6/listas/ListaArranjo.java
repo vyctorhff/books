@@ -14,81 +14,74 @@ package base.cap6.listas;
 public class ListaArranjo<T> implements Lista<T> {
 
     private final int TAMANHO_INCIAL = 10;
-    private Object arranjo[];
+    private Object[] arranjo;
     private int numeroElementos;
 
     // Indice do ultimo elemento do arranjo.
     private int posicaoAtual;
 
-
     public ListaArranjo() {
         arranjo = new Object[TAMANHO_INCIAL];
-
-        numeroElementos = 0;
     }
-
 
     @Override
     public int size() {
         return numeroElementos;
     }
 
-
     @Override
     public boolean isEmpty() {
         return numeroElementos == 0;
     }
 
-
-    @SuppressWarnings("unchecked")
     @Override
     public T get(int indice) throws Exception {
 
-        if (this.isEmpty())
+        if (this.isEmpty()) {
             throw new IllegalStateException("Lista vazia");
+        }
 
-        if (indice < 0 || indice > arranjo.length)
+        if (indice < 0 || indice > arranjo.length) {
             throw new IllegalArgumentException("Indice invalido!");
-
+        }
 
         return (T) arranjo[indice];
     }
 
-
-    @SuppressWarnings("unchecked")
     @Override
     public T set(int indice, T elemento) throws Exception {
 
-        if (isEmpty() || indice >= arranjo.length)
+        if (isEmpty() || indice >= arranjo.length) {
             throw new IllegalArgumentException("Indice invalido");
+        }
 
-
-        if (indice >= arranjo.length)
+        if (indice >= arranjo.length) {
             this.dobraTamanhoArranjo();
-
+        }
 
         Object objeto = arranjo[indice];
         arranjo[indice] = elemento;
 
-
         return (T) objeto;
     }
-
 
     @Override
     public void add(int indice, T elemento) throws Exception {
 
-        if (indice > arranjo.length)
-            this.dobraTamanhoArranjo();
+        if (indice < 0) {
+            throw new IllegalArgumentException("Invalid index");
+        }
 
+        if (indice > arranjo.length) {
+            this.dobraTamanhoArranjo();
+        }
 
         // Verifica se a posicao ja esta ocupada.
-        if (arranjo[indice] != null)
+        if (arranjo[indice] != null) {
             this.fastarElementosPorIndice(indice);
-
+        }
 
         arranjo[indice] = elemento;
-
         numeroElementos++;
 
         // Configura para o ultimo indice do arranjo.
@@ -96,25 +89,19 @@ public class ListaArranjo<T> implements Lista<T> {
             posicaoAtual = indice;
     }
 
-
-    @SuppressWarnings("unchecked")
     @Override
     public T remove(int indice) throws Exception {
 
         if (isEmpty() || indice >= arranjo.length)
             throw new IllegalArgumentException("Indice invalido");
 
-
         Object objeto = arranjo[indice];
         arranjo[indice] = null;
 
-
         numeroElementos--;
-
 
         return (T) objeto;
     }
-
 
     /**
      * Fastar todos os elementos para a proxima posicao a partir
@@ -124,9 +111,9 @@ public class ListaArranjo<T> implements Lista<T> {
      */
     private void fastarElementosPorIndice(int indice) {
 
-        if (indice >= arranjo.length || isEmpty())
+        if (indice >= arranjo.length || isEmpty()) {
             throw new IllegalArgumentException("Indice invalido!");
-
+        }
 
         int cont = posicaoAtual;
 
@@ -139,16 +126,16 @@ public class ListaArranjo<T> implements Lista<T> {
         }
     }
 
-
     /**
      * Aumenta o tamanho do arranjo para o seu dobro.
      */
     private void dobraTamanhoArranjo() {
 
-        Object novoArranjo[] = new Object[arranjo.length * 2];
+        Object[] novoArranjo = new Object[arranjo.length * 2];
 
-        for (int cont = 0; cont < arranjo.length; cont++)
+        for (int cont = 0; cont < arranjo.length; cont++) {
             novoArranjo[cont] = arranjo[cont];
+        }
 
         arranjo = novoArranjo;
     }

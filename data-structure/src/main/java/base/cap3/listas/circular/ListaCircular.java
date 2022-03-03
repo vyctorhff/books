@@ -8,56 +8,76 @@
  */
 package base.cap3.listas.circular;
 
+/**
+ * É uma lista encadeada que não possui head nem tail. E o último elemento
+ * aponta para o primeiro.
+ *
+ * As operações de insert e remove são sempre feitas no próximo, já que não há referência para o prev.
+ * Desta forma, sempre devesse avaliar o next do cursor, nunca ele mesmo.
+ */
 public class ListaCircular {
 
-    //Nao e um elemento, funciona com um sentinela de lista duplamente enc.
-    private NodoCircular cursor;
+    /**
+     * Nao e um elemento, funciona com um sentinela de lista duplamente enc.
+     * É um nodo especial para ser usado com ponto de partida para acessar a lista.
+     */
+    private CircularNode cursor;
 
-    public void inserir(NodoCircular nodoInsercao) {
+    private int size;
 
-        if (nodoInsercao == null) {
+    public void inserir(CircularNode insertNode) {
+
+        if (insertNode == null) {
             throw new IllegalArgumentException("No invalido");
         }
 
         if (cursor == null) {
-            cursor = nodoInsercao;
-            nodoInsercao.setProximo(nodoInsercao);
-
+            cursor = insertNode;
+            insertNode.setNext(insertNode);
         } else {
-            NodoCircular nodo = cursor.getProximo();
-            cursor.setProximo(nodoInsercao);
+            CircularNode node = cursor.getNext();
+            cursor.setNext(insertNode);
 
-            nodoInsercao.setProximo(nodo);
+            insertNode.setNext(node);
+            cursor = insertNode;
         }
+
+        size++;
     }
 
-    public void avancar() {
-        if (cursor == null)
+    public void next() {
+        if (cursor == null) {
             throw new IllegalStateException("A lista esta vazia");
+        }
 
-        cursor = cursor.getProximo();
+        cursor = cursor.getNext();
     }
 
-    public NodoCircular remover() {
+    public CircularNode remover() {
 
         if (cursor == null) {
             return null;
         }
 
-        NodoCircular nodoRemovido = cursor.getProximo();
+        CircularNode nodoRemovido = cursor.getNext();
 
         //No caso da lista possuir 1 elemento
-        if (cursor.getNome().equals(nodoRemovido.getNome())) {
+        if (cursor == nodoRemovido) {
             cursor = null;
         } else {
-            cursor.setProximo(nodoRemovido.getProximo());
-            nodoRemovido.setProximo(null);
+            cursor.setNext(nodoRemovido.getNext());
+            nodoRemovido.setNext(null);
         }
 
+        size--;
         return nodoRemovido;
     }
 
-    public String getElementoCursor() {
-        return cursor.getProximo().getNome();
+    public String getElement() {
+        return cursor.getNext().getName();
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }

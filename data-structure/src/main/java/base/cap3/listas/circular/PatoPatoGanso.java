@@ -22,106 +22,117 @@ import java.util.Random;
  */
 public class PatoPatoGanso {
 
-    private final int NUMERO_RODADAS = 4;
-    private ListaCircular circulo;
+    private final int NUMERO_RODADAS = 10;
 
+    private final ListaCircular circulo;
 
     public PatoPatoGanso() {
         circulo = new ListaCircular();
-        popularCriancas();
     }
 
-
-    /**
-     * Adiciona as criancas na lista circular.
-     */
-    private void popularCriancas() {
-        circulo.inserir(new NodoCircular("Vic"));
-        circulo.inserir(new NodoCircular("Alb"));
-
-        circulo.inserir(new NodoCircular("Joana"));
-        circulo.inserir(new NodoCircular("Junior"));
-
-        circulo.inserir(new NodoCircular("Enoch"));
-        circulo.inserir(new NodoCircular("Olivia"));
+    public void addChild(String name) {
+        circulo.inserir(new CircularNode(name));
     }
 
+    public void play() {
+        System.out.print("Playing Duck, Duck, Goose: ");
+        printChildren();
 
-    public void participantes() {
-        String nomeCrianca = circulo.getElementoCursor();
-        String nome = circulo.getElementoCursor();
+        CircularNode catcher = raffletCatcher();
+        System.out.println("Catcher is: " + catcher.getName());
+
+        var count = 0;
+        separator();
 
         do {
-
-            System.out.print(nome + ", ");
-            circulo.avancar();
-
-            nome = circulo.getElementoCursor();
-
-        } while (!nomeCrianca.equals(nome));
-    }
-
-
-    public void iniciarBricadeira() {
-
-        System.out.print("Jogando Pato, Pato, Ganso: ");
-        participantes();
-        System.out.println();
-
-
-        NodoCircular pegador = circulo.remover();
-        System.out.println("Pegador e " + pegador.getNome());
-
-
-        for (int cont = 0; cont <= NUMERO_RODADAS; cont++) {
-
-            System.out.println("-----------------------------------------------------------------");
-            System.out.print("No circulo: ");
-            participantes();
-            System.out.println("\n-----------------------------------------------------------------");
-
-            NodoCircular ganso = percorrerCirculoAtrasDoGanso();
+            printChildrenInTheCircle();
+            CircularNode ganso = findAndRemoveGoose();
 
             if (sorteioAleatorio()) {
-                circulo.inserir(pegador); // Pagador ganhou a corrida.
-                pegador = ganso;
-
-                System.out.println("Pegador agora e " + pegador.getNome());
-
+                catcher = catcherWins(catcher, ganso);
             } else {
-                circulo.inserir(ganso); // Ganso ganhou.
-
-                System.out.println("Pegador ainda e " + pegador.getNome());
+                catcherLoses(catcher, ganso);
             }
-        }
+
+            separator();
+            count++;
+        } while (count <= NUMERO_RODADAS);
     }
 
+    private void catcherLoses(CircularNode catcher, CircularNode ganso) {
+        circulo.inserir(ganso);
+        System.out.println("Catcher still is " + catcher.getName());
+    }
 
-    /**
-     * @return
-     */
-    private NodoCircular percorrerCirculoAtrasDoGanso() {
+    private CircularNode catcherWins(CircularNode catcher, CircularNode ganso) {
+        circulo.inserir(catcher);
 
-        NodoCircular ganso = null;
-
-        while (true) {
-
-            System.out.print(circulo.getElementoCursor() + " e ");
-
-            if (isGanso()) {
-                System.out.println("Ganso");
-                ganso = circulo.remover();
-
-                break;
-            } else
-                System.out.println("Pato");
-
-            circulo.avancar();
-        }
-
+        System.out.println("Catcher is now " + ganso.getName());
         return ganso;
     }
 
+    private CircularNode raffletCatcher() {
+        var numberIterations = new Random().nextInt(20);
+
+        for (var count = 0; count < numberIterations; count++) {
+            this.circulo.next();
+        }
+
+        return circulo.remover();
+    }
+
+    public void printChildren() {
+        String nomeCrianca = circulo.getElement();
+        String nome = circulo.getElement();
+
+        do {
+            System.out.print(nome + ", ");
+            circulo.next();
+
+            nome = circulo.getElement();
+
+        } while (!nomeCrianca.equals(nome));
+
+        System.out.println("\n");
+    }
+
+    private void printChildrenInTheCircle() {
+        System.out.print("In the circle: ");
+        printChildren();
+    }
+
+    private void printChildIs(String animal) {
+        System.out.printf("%s is a %s\n", circulo.getElement(), animal);
+    }
+
+    private CircularNode findAndRemoveGoose() {
+        CircularNode goose = null;
+
+        // controlling the game to be not so quick and not so long
+        // to choose the goose
+        var mininumIteration = 3;
+        var maxIteration = 6;
+        var count = 0;
+
+        while (true) {
+            boolean minReached = count > mininumIteration;
+            boolean maxReached = count > maxIteration;
+
+            if ((minReached && isGanso()) || maxReached) {
+                printChildIs("Goose");
+                goose = circulo.remover();
+
+                break;
+            }
+
+            printChildIs("Duck");
+            count++;
+
+            circulo.next();
+        }
+
+        return goose;
+    }
 
     /**
      * Retorna uma boolean aleatorio com true para ganso e false para pato.
@@ -132,17 +143,15 @@ public class PatoPatoGanso {
         return sorteioAleatorio();
     }
 
-
     public boolean sorteioAleatorio() {
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
         int valorAleatorio = random.nextInt(10);
-
-        /*
-         * Sorteio tendencioso para o falso, um vez que a probalidade e de 80% false, e 20% true.
-         */
-        return (valorAleatorio >= 2) ? false : true;
+        return valorAleatorio < 3;
     }
 
+    private void separator() {
+        System.out.println("-".repeat(50));
+    }
 }

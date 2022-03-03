@@ -8,44 +8,26 @@
  */
 package base.cap3.listas.circular;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PatoPatoGansoTest {
 
-    @Test
-    public void testParticipantes() {
-        PatoPatoGanso patoGanso = new PatoPatoGanso();
-        patoGanso.participantes();
-    }
+    private PatoPatoGanso patoPatoGanso;
 
-    @Test
-    public void testSorteioAleatorio() {
-        PatoPatoGanso patoPatoGanso = new PatoPatoGanso();
+    @BeforeEach
+    void setup() {
+        patoPatoGanso = new PatoPatoGanso();
 
-        int numeroTrue = 0;
-        int numeroFalse = 0;
-
-        for (int cont = 0; cont < 100; cont++) {
-
-            if (patoPatoGanso.sorteioAleatorio())
-                numeroTrue++;
-            else
-                numeroFalse++;
-        }
-
-        var limiteMinimo = 0;
-        assertNotEquals(limiteMinimo, numeroTrue);
-        assertNotEquals(limiteMinimo, numeroFalse);
-
-        var limiteMaximo = 100;
-        assertNotEquals(limiteMaximo, numeroTrue);
-        assertNotEquals(limiteMaximo, numeroFalse);
+        patoPatoGanso.addChild("Vic");
+        patoPatoGanso.addChild("Albe");
+        patoPatoGanso.addChild("Miguel");
+        patoPatoGanso.addChild("Alba");
+        patoPatoGanso.addChild("Beirinho");
     }
 
     @Test
     public void testIniciarBricadeira() {
-        new PatoPatoGanso().iniciarBricadeira();
+        patoPatoGanso.play();
     }
 }

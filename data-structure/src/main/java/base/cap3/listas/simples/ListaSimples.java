@@ -13,41 +13,38 @@ package base.cap3.listas.simples;
  */
 public class ListaSimples {
 
-    private int numeroElementos;
+    private int size;
 
-    private NodoSimples cabeca;
+    private SimpleNode head;
 
-    public void inserirCabeca(int elemento) {
+    public void insertHead(int elemento) {
 
-        if (cabeca == null)
-            cabeca = new NodoSimples(elemento);
-        else {
-            NodoSimples no = new NodoSimples(elemento);
+        if (head == null) {
+            head = new SimpleNode(elemento);
+        } else {
+            SimpleNode no = new SimpleNode(elemento);
 
-            no.setProximo(cabeca);
-            cabeca = no;
+            no.setProximo(head);
+            head = no;
         }
 
-        numeroElementos++;
+        size++;
     }
 
-    public void inserirOrdenada(int elemento) {
-    }
+    public void insertAfter(int elementoProcurado, int elementoInsercao) {
 
-    public void inserirElementoApos(int elementoProcurado, int elementoInsercao) {
-
-        NodoSimples nodoProcurado = procurarNodoByElemento(elementoProcurado);
-
+        var nodoProcurado = findNodeByElement(elementoProcurado);
 
         if (nodoProcurado != null) {
-            NodoSimples nodoInsercao = new NodoSimples(elementoInsercao);
+            var nodoInsercao = new SimpleNode(elementoInsercao);
 
             nodoInsercao.setProximo(nodoProcurado.getProximo());
             nodoProcurado.setProximo(nodoInsercao);
 
-            numeroElementos++;
-        } else
-            throw new IllegalArgumentException("Elemeneto nao encontrado na lista");
+            size++;
+        } else {
+            throw new IllegalArgumentException("Elemento nao encontrado na lista");
+        }
     }
 
     /**
@@ -59,19 +56,13 @@ public class ListaSimples {
      * @param elemento
      * @return
      */
-    public NodoSimples procurarNodoByElemento(int elemento) {
-
-        NodoSimples nodo = cabeca;
+    public SimpleNode findNodeByElement(int elemento) {
+        SimpleNode nodo = head;
 
         while (true) {
+            if (nodo == null) break;
 
-            if (nodo == null)
-                break;
-
-
-            if (elemento == nodo.getElemento())
-                break;
-
+            if (elemento == nodo.getElemento()) break;
 
             nodo = nodo.getProximo();
         }
@@ -79,26 +70,38 @@ public class ListaSimples {
         return nodo;
     }
 
-    public void removerNodoByElemento(int elemento) {
-
-        if (cabeca == null)
-            throw new IllegalArgumentException("Remocao invalida por a lista esta vazia!");
-
-        //Remocao quando o elemento estiver no cabeca.
-        if (elemento == cabeca.getElemento()) {
-            NodoSimples nodo = cabeca.getProximo();
-            cabeca.setProximo(null);
-
-            cabeca = nodo;
+    public int removeHead() {
+        if (head == null) {
+            throw new IllegalStateException("Empty list");
         }
 
-        NodoSimples nodo = cabeca.getProximo();
-        NodoSimples anteriorAoElemento = cabeca;
+        var removed = head;
+        head = head.getProximo();
+
+        size--;
+        return removed.getElemento();
+    }
+
+    public void removerNodoByElemento(int elemento) {
+
+        if (head == null) {
+            throw new IllegalArgumentException("Remocao invalida por a lista esta vazia!");
+        }
+
+        //Remocao quando o elemento estiver no cabeca.
+        if (elemento == head.getElemento()) {
+            SimpleNode nodo = head.getProximo();
+            head.setProximo(null);
+
+            head = nodo;
+        }
+
+        SimpleNode nodo = head.getProximo();
+        SimpleNode anteriorAoElemento = head;
 
         while (true) {
 
-            if (nodo == null)
-                break;
+            if (nodo == null) break;
 
             if (elemento == nodo.getElemento()) {
 
@@ -112,31 +115,56 @@ public class ListaSimples {
             nodo = nodo.getProximo();
         }
 
-        if (nodo == null)
+        if (nodo == null) {
             throw new IllegalArgumentException("Elemento nao encontrado!");
+        }
 
-        numeroElementos--;
+        size--;
     }
 
     public void substituirElemento(int elementoAntigo, int elementoNovo) {
+        SimpleNode nodo = findNodeByElement(elementoAntigo);
 
-        NodoSimples nodo = procurarNodoByElemento(elementoAntigo);
-
-        if (nodo != null)
-            nodo.setElemento(elementoNovo);
-        else
+        if (nodo == null) {
             throw new IllegalArgumentException("Elemento nao encontrado!");
+        }
+
+        nodo.setElemento(elementoNovo);
     }
 
-    public void ordenarLista() {
+    public void sort() {
+        var count = 0;
+
+
+        while (count < (size * 2)) {
+
+            var nodo = head;
+
+            while (nodo.getProximo() != null) {
+                if (nodo.getElemento() > nodo.getProximo().getElemento()) {
+                    swapElement(nodo, nodo.getProximo());
+                }
+
+                nodo = nodo.getProximo();
+            }
+
+            count++;
+        }
     }
 
-    public NodoSimples getCabeca() {
-        return cabeca;
+    private void swapElement(SimpleNode nodo, SimpleNode proximo) {
+        var value = nodo.getElemento();
+
+        nodo.setElemento(proximo.getElemento());
+        proximo.setElemento(value);
     }
 
-    public int getNumeroElementos() {
-        return numeroElementos;
+    public SimpleNode getHead() {
+        return head;
+    }
+
+    public int getSize() {
+        return size;
     }
 
 }

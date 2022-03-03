@@ -9,52 +9,66 @@
 package base.cap3.listas.circular;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListaCircularTest {
 
-    @Test
-    public void testInserir() {
-        ListaCircular listaCircular = new ListaCircular();
+    private ListaCircular listaCircular;
 
-        listaCircular.inserir(new NodoCircular("aaaa"));
-        assertEquals("aaaa", listaCircular.getElementoCursor());
+    @BeforeEach
+    void setup() {
+        this.listaCircular = new ListaCircular();
     }
 
     @Test
-    public void testAvancar() {
-        ListaCircular listaCircular = new ListaCircular();
+    public void testInserir() {
+        listaCircular.inserir(new CircularNode("aaaa"));
+        assertEquals("aaaa", listaCircular.getElement());
+        assertEquals(1, listaCircular.getSize());
+    }
 
-        listaCircular.inserir(new NodoCircular("aaaa"));
-        listaCircular.inserir(new NodoCircular("bbbb"));
-        listaCircular.inserir(new NodoCircular("cccc"));
-        listaCircular.inserir(new NodoCircular("dddd"));
+    @Test
+    public void testNext() {
+        listaCircular.inserir(new CircularNode("aaaa"));
+        listaCircular.inserir(new CircularNode("bbbb"));
+        listaCircular.inserir(new CircularNode("cccc"));
+        listaCircular.inserir(new CircularNode("dddd"));
 
-        listaCircular.avancar();
-        assertEquals("cccc", listaCircular.getElementoCursor());
+        /**
+         * O getElement mostra o valor do next, pois - quando na operação de
+         * remoção - será processado o próximo e não o curso do elemento corrento.
+         */
 
-        listaCircular.avancar();
-        assertEquals("bbbb", listaCircular.getElementoCursor());
+        listaCircular.next();
+        assertEquals("bbbb", listaCircular.getElement());
 
-        listaCircular.avancar();
-        assertEquals("aaaa", listaCircular.getElementoCursor());
+        listaCircular.next();
+        assertEquals("cccc", listaCircular.getElement());
+
+        listaCircular.next();
+        assertEquals("dddd", listaCircular.getElement());
+
+        listaCircular.next();
+        assertEquals("aaaa", listaCircular.getElement());
+
     }
 
     @Test
     public void testRemover() {
-        ListaCircular listaCircular = new ListaCircular();
+        listaCircular.inserir(new CircularNode("aaaa"));
+        listaCircular.inserir(new CircularNode("bbbb"));
+        listaCircular.inserir(new CircularNode("cccc"));
+        listaCircular.inserir(new CircularNode("dddd"));
 
-        listaCircular.inserir(new NodoCircular("aaaa"));
-        listaCircular.inserir(new NodoCircular("bbbb"));
-        listaCircular.inserir(new NodoCircular("cccc"));
-        listaCircular.inserir(new NodoCircular("dddd"));
+        CircularNode nodo = listaCircular.remover();
+        assertEquals("aaaa", nodo.getName());
 
-        NodoCircular nodo = listaCircular.remover();
-        assertEquals("dddd", nodo.getNome());
+        assertEquals("bbbb", listaCircular.getElement());
 
-        listaCircular.avancar();
-        assertEquals("bbbb", listaCircular.getElementoCursor());
+        listaCircular.next();
+        assertEquals("cccc", listaCircular.getElement());
     }
 }

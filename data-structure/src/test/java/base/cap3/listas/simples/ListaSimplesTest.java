@@ -9,75 +9,58 @@
 package base.cap3.listas.simples;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ListaSimplesTest {
 
+    private ListaSimples listaSimples;
+
+    @BeforeEach
+    void setup() {
+        this.listaSimples = new ListaSimples();
+    }
+
     @Test
     public void testInserirCabeca() {
-        ListaSimples listaSimples = new ListaSimples();
-
         final int NUMERO_LISTA_VAZIA = 0;
-        assertEquals(NUMERO_LISTA_VAZIA, listaSimples.getNumeroElementos());
+        assertEquals(NUMERO_LISTA_VAZIA, listaSimples.getSize());
 
         final int ELEMENTO_1 = 5;
         final int NUMERO_LISTA_UM = 1;
 
-        listaSimples.inserirCabeca(ELEMENTO_1);
-        assertEquals(NUMERO_LISTA_UM, listaSimples.getNumeroElementos());
+        listaSimples.insertHead(ELEMENTO_1);
+        assertEquals(NUMERO_LISTA_UM, listaSimples.getSize());
 
-
-        NodoSimples cabeca = listaSimples.getCabeca();
+        SimpleNode cabeca = listaSimples.getHead();
         assertEquals(ELEMENTO_1, cabeca.getElemento());
 
+        listaSimples.insertHead(6);
+        assertEquals(2, listaSimples.getSize());
 
-        listaSimples.inserirCabeca(6);
-        assertEquals(2, listaSimples.getNumeroElementos());
-
-        cabeca = listaSimples.getCabeca();
+        cabeca = listaSimples.getHead();
         assertEquals(6, cabeca.getElemento());
     }
 
-
-    @Test
-    public void testInserirOrdenada() {
-        fail("Not yet implemented");
-    }
-
-
     @Test
     public void testInserirElementoAposNodo() {
-        ListaSimples listaSimples = new ListaSimples();
+        fillDataInListForTest();
 
-        listaSimples.inserirCabeca(2);
-        listaSimples.inserirCabeca(1);
-        listaSimples.inserirCabeca(3);
-        listaSimples.inserirCabeca(5);
+        listaSimples.insertAfter(3, 7);
+        assertEquals(5, listaSimples.getSize());
 
-
-        listaSimples.inserirElementoApos(3, 7);
-        assertEquals(5, listaSimples.getNumeroElementos());
-
-
-        NodoSimples nodoInserido = listaSimples.procurarNodoByElemento(7);
+        SimpleNode nodoInserido = listaSimples.findNodeByElement(7);
         assertNotNull(nodoInserido);
         assertEquals(7, nodoInserido.getElemento());
     }
 
     @Test
     public void testProcurarNodoByElemento() {
-        ListaSimples listaSimples = new ListaSimples();
+        fillDataInListForTest();
 
-        listaSimples.inserirCabeca(2);
-        listaSimples.inserirCabeca(1);
-        listaSimples.inserirCabeca(3);
-        listaSimples.inserirCabeca(5);
-
-
-        NodoSimples nodo = listaSimples.procurarNodoByElemento(3);
-
+        SimpleNode nodo = listaSimples.findNodeByElement(3);
 
         assertNotNull(nodo);
         assertEquals(3, nodo.getElemento());
@@ -85,37 +68,25 @@ public class ListaSimplesTest {
 
     @Test
     public void testRemoverNodoByElemento() {
-        ListaSimples listaSimples = new ListaSimples();
-
-        listaSimples.inserirCabeca(2);
-        listaSimples.inserirCabeca(1);
-        listaSimples.inserirCabeca(3);
-        listaSimples.inserirCabeca(5);
-
+        fillDataInListForTest();
 
         listaSimples.removerNodoByElemento(1);
-        assertEquals(3, listaSimples.getNumeroElementos());
+        assertEquals(3, listaSimples.getSize());
 
-
-        NodoSimples nodo = listaSimples.procurarNodoByElemento(1);
+        SimpleNode nodo = listaSimples.findNodeByElement(1);
         assertNull(nodo);
     }
 
     @Test
-    public void testRemoverNodoByElementoListaVazia() throws Exception {
+    public void testRemoverNodoByElementoListaVazia() {
         assertThrows(IllegalArgumentException.class, () -> {
             new ListaSimples().removerNodoByElemento(4);
         });
     }
 
     @Test
-    public void testRemoverNodoByElementoInvalido() throws Exception {
-        ListaSimples listaSimples = new ListaSimples();
-
-        listaSimples.inserirCabeca(2);
-        listaSimples.inserirCabeca(1);
-        listaSimples.inserirCabeca(3);
-        listaSimples.inserirCabeca(5);
+    public void testRemoverNodoByElementoInvalido() {
+        fillDataInListForTest();
 
         assertThrows(IllegalArgumentException.class, () -> {
             listaSimples.removerNodoByElemento(10);
@@ -123,24 +94,58 @@ public class ListaSimplesTest {
     }
 
     @Test
-    public void testSubstituirElemento() {
-        ListaSimples listaSimples = new ListaSimples();
+    void testRemoveHead() {
+        fillDataInListForTest();
 
-        listaSimples.inserirCabeca(2);
-        listaSimples.inserirCabeca(1);
-        listaSimples.inserirCabeca(3);
-        listaSimples.inserirCabeca(5);
+        var value = listaSimples.removeHead();
+        assertEquals(5, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(3, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(1, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(2, value);
+    }
+
+    @Test
+    public void testSubstituirElemento() {
+        fillDataInListForTest();
 
         listaSimples.substituirElemento(3, 7);
         assertEquals(4, 4);
 
-        NodoSimples nodo = listaSimples.procurarNodoByElemento(7);
+        SimpleNode nodo = listaSimples.findNodeByElement(7);
         assertNotNull(nodo);
         assertEquals(7, nodo.getElemento());
     }
 
     @Test
     public void testOrdenarLista() {
-        fail("Not yet implemented");
+        fillDataInListForTest();
+
+        listaSimples.sort();
+
+        var value = listaSimples.removeHead();
+        assertEquals(1, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(2, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(3, value);
+
+        value = listaSimples.removeHead();
+        assertEquals(5, value);
     }
+
+    private void fillDataInListForTest() {
+        listaSimples.insertHead(2);
+        listaSimples.insertHead(1);
+        listaSimples.insertHead(3);
+        listaSimples.insertHead(5);
+    }
+
 }
