@@ -29,9 +29,7 @@ public class GameMeetAtTheForest {
 
     public static final int MININUM_PLAYER_AMOUNT = 1_000;
 
-    /*
-     * Os jogadores seram as linhas e os encontros com os outros seram as colunas.
-     */
+    // Os jogadores seram as linhas e os encontros com os outros seram as colunas.
     private final boolean[][] meets;
 
     private final int totalPlayerNumber;

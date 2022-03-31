@@ -8,9 +8,6 @@
  */
 package base.cap3.recursao;
 
-/**
- * Questoes diversas sobre recursao.
- */
 public class CasosGerais {
 
     public int somaArranjo(int[] arranjo) {
@@ -34,14 +31,15 @@ public class CasosGerais {
 
     public int[] inverteArranjo(int[] arranjo) {
 
-        if (arranjo == null)
+        if (arranjo == null) {
             throw new IllegalArgumentException("Arranjo null ou invalido");
+        }
 
         final int tamanhoArranjo = arranjo.length;
 
-        if (tamanhoArranjo <= 0)
+        if (tamanhoArranjo <= 0) {
             throw new IllegalArgumentException("Arranjo vazio");
-
+        }
 
         int[] arranjoInvertido = new int[tamanhoArranjo];
         return inverteArranhoHelper(arranjo, 0, arranjoInvertido, tamanhoArranjo - 1);
@@ -49,11 +47,11 @@ public class CasosGerais {
 
     private int[] inverteArranhoHelper(int[] arranjo, int indice, int[] arranjoInvertido, int indiceInvertido) {
 
-        if (indice >= (arranjo.length))
+        if (indice >= (arranjo.length)) {
             return arranjoInvertido;
+        }
 
         arranjoInvertido[indiceInvertido] = arranjo[indice];
-
         return inverteArranhoHelper(arranjo, ++indice, arranjoInvertido, --indiceInvertido);
     }
 

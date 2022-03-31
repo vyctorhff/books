@@ -68,7 +68,6 @@ public class TorreDeHanoi {
 
     private final int numeroTotalDiscos;
 
-
     public TorreDeHanoi(int numeroDiscos, boolean mostrar) {
         this.numeroTotalDiscos = numeroDiscos;
 
@@ -76,20 +75,17 @@ public class TorreDeHanoi {
         pinoB = new Pino(numeroDiscos);
         pinoC = new Pino(numeroDiscos);
 
-
         inicializarPinoOrigem(pinoA);
-
 
         if (mostrar)
             imprimirTorre = new ImprimeTorreDeHanoi(this);
     }
 
-
     /**
      * Insere os disco em ordem decrescente de discos. Primeiro os disco de maior
      * valor e depois os de menor valor.
      *
-     * @param pinoA2
+     * @param pino
      */
     private void inicializarPinoOrigem(Pino pino) {
 
@@ -100,11 +96,9 @@ public class TorreDeHanoi {
             pino.inserirDisco(cont);
     }
 
-
     public void resolver() {
         resolverHelper(numeroTotalDiscos);
     }
-
 
     /**
      * Metodo principal para a resolucao do problema. Admite-se que o disco com
@@ -122,12 +116,10 @@ public class TorreDeHanoi {
             return;
         }
 
-
         resolverHelper(numeroDiscos - 1);
         progredir(numeroDiscos);
         resolverHelper(numeroDiscos - 1);
     }
-
 
     /**
      * Metodo que movimenta o disco de maior valor do pino A para o C, procedendo
@@ -136,12 +128,10 @@ public class TorreDeHanoi {
      * @param numeroDiscos2
      */
     private void progredir(int numeroDiscos) {
-
         mover(pinoA, pinoB);
         inverterProgressao(numeroDiscos - 1);
         mover(pinoB, pinoC);
     }
-
 
     /**
      * Metodo que inverte(anula a resolucao do problema, fazendo com que os
@@ -152,19 +142,16 @@ public class TorreDeHanoi {
      * @param numeroDiscos
      */
     private void inverterProgressao(int numeroDiscos) {
-
         //Caso base para a inversao.
         if (numeroDiscos == 1) {
             mover(pinoC, pinoA);
             return;
         }
 
-
         mover(pinoC, pinoB);
         inverterProgressao(numeroDiscos - 1);
         mover(pinoB, pinoA);
     }
-
 
     /**
      * Move o disco que esta no pinoOrigem para o pinoDestino.
@@ -173,19 +160,15 @@ public class TorreDeHanoi {
      * @param pinoDestino
      */
     public void mover(Pino pinoOrigem, Pino pinoDestino) {
-
         int disco = pinoOrigem.removerDisco();
         pinoDestino.inserirDisco(disco);
 
-
         numeroPassosResolucao++;
-
 
         //Apos cada movimentos, mostra-se as torres.
         if (imprimirTorre != null)
             imprimirTorre.mostrarTorreHanoi();
     }
-
 
     /**
      * @return the numeroDiscos
@@ -194,14 +177,12 @@ public class TorreDeHanoi {
         return numeroTotalDiscos;
     }
 
-
     /**
      * @return the numeroPassosResolucao
      */
     public int getNumeroPassosResolucao() {
         return numeroPassosResolucao;
     }
-
 
     /**
      * @return the pinoA
@@ -210,14 +191,12 @@ public class TorreDeHanoi {
         return pinoA;
     }
 
-
     /**
      * @return the pinoB
      */
     public Pino getPinoB() {
         return pinoB;
     }
-
 
     /**
      * @return the pinoC
