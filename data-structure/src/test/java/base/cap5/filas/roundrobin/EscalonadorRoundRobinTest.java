@@ -8,6 +8,7 @@
  */
 package base.cap5.filas.roundrobin;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class EscalonadorRoundRobinTest {
 
     @Test
+    @Disabled("Devido o tempo de execução, será desabilitado")
     public void testInitEscalonador() {
         EscalonadorRoundRobin escalonador = new EscalonadorRoundRobin();
 
