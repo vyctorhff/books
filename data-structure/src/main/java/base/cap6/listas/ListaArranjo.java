@@ -3,7 +3,6 @@
  * Locate at Natal, Rio Grande do Norte
  *
  * ListaArranjo.java
- *
  * @autor torugo
  */
 package base.cap6.listas;
@@ -13,7 +12,7 @@ package base.cap6.listas;
  */
 public class ListaArranjo<T> implements Lista<T> {
 
-    private final int TAMANHO_INCIAL = 10;
+    private final static int TAMANHO_INCIAL = 10;
     private Object[] arranjo;
     private int numeroElementos;
 
@@ -35,7 +34,8 @@ public class ListaArranjo<T> implements Lista<T> {
     }
 
     @Override
-    public T get(int indice) throws Exception {
+    @SuppressWarnings("unchecked")
+    public T get(int indice) {
 
         if (this.isEmpty()) {
             throw new IllegalStateException("Lista vazia");
@@ -49,13 +49,16 @@ public class ListaArranjo<T> implements Lista<T> {
     }
 
     @Override
-    public T set(int indice, T elemento) throws Exception {
+    @SuppressWarnings("unchecked")
+    public T set(int indice, T elemento) {
 
-        if (isEmpty() || indice >= arranjo.length) {
+        var tamanho = arranjo.length;
+
+        if (isEmpty() || indice >= tamanho) {
             throw new IllegalArgumentException("Indice invalido");
         }
 
-        if (indice >= arranjo.length) {
+        if (indice <= tamanho) {
             this.dobraTamanhoArranjo();
         }
 
@@ -66,7 +69,7 @@ public class ListaArranjo<T> implements Lista<T> {
     }
 
     @Override
-    public void add(int indice, T elemento) throws Exception {
+    public void add(int indice, T elemento) {
 
         if (indice < 0) {
             throw new IllegalArgumentException("Invalid index");
@@ -90,6 +93,7 @@ public class ListaArranjo<T> implements Lista<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public T remove(int indice) throws Exception {
 
         if (isEmpty() || indice >= arranjo.length)
@@ -106,8 +110,6 @@ public class ListaArranjo<T> implements Lista<T> {
     /**
      * Fastar todos os elementos para a proxima posicao a partir
      * de um indice.
-     *
-     * @param indice
      */
     private void fastarElementosPorIndice(int indice) {
 
@@ -130,14 +132,9 @@ public class ListaArranjo<T> implements Lista<T> {
      * Aumenta o tamanho do arranjo para o seu dobro.
      */
     private void dobraTamanhoArranjo() {
-
         Object[] novoArranjo = new Object[arranjo.length * 2];
 
-        for (int cont = 0; cont < arranjo.length; cont++) {
-            novoArranjo[cont] = arranjo[cont];
-        }
-
+        System.arraycopy(arranjo, 0, novoArranjo, 0, arranjo.length);
         arranjo = novoArranjo;
     }
-
 }

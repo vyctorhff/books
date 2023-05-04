@@ -22,7 +22,6 @@ public class TNode<E> {
 
     private Collection<TNode<E>> filhos;
 
-
     public TNode(E elemento, TNode<E> pai) {
         this.elemento = elemento;
         this.pai = pai;
@@ -30,31 +29,25 @@ public class TNode<E> {
         filhos = new ArrayList<TNode<E>>();
     }
 
-
     public E getElemento() {
         return elemento;
     }
-
 
     public void setElemento(E elemento) {
         this.elemento = elemento;
     }
 
-
     public TNode<E> getPai() {
         return pai;
     }
-
 
     public void setPai(TNode<E> pai) {
         this.pai = pai;
     }
 
-
     public Collection<TNode<E>> getFilhos() {
         return filhos;
     }
-
 
     public void setFilhos(Collection<TNode<E>> filhos) {
         this.filhos = filhos;

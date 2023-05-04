@@ -6,13 +6,13 @@
  *
  * @autor torugo
  */
-package avancado.cap7;
+package avancado.cap7.generic;
 
+import avancado.cap7.TNode;
 import base.cap6.iterator.Iterador;
 
 /**
  * TAD arvore.
- * Os pais podem ter quantos filhos for necessario.
  */
 public interface Arvore<E> {
 
@@ -23,9 +23,7 @@ public interface Arvore<E> {
      */
 	TNode<E> getRaiz();
 
-
     int size();
-
 
     /**
      * A arvore esta vazia se nao existe nem o raiz.
@@ -34,7 +32,6 @@ public interface Arvore<E> {
      */
 	boolean isEmpty();
 
-
     /**
      * Iterador de todos os elementos da arvore.
      *
@@ -42,14 +39,12 @@ public interface Arvore<E> {
      */
 	Iterador<E> iterator();
 
-
     /**
      * Iterador de todos os nodos da arvore
      *
      * @return
      */
 	Iterador<E> positions();
-
 
     /**
      * Substitui o elemento armazenado em um dado nodo.
@@ -60,7 +55,6 @@ public interface Arvore<E> {
      */
 	E replace(TNode<E> nodo, E elemento);
 
-
     /**
      * Retorna o pai do nodo
      *
@@ -69,20 +63,17 @@ public interface Arvore<E> {
      */
 	TNode<E> parent(TNode<E> nodo);
 
-
     /**
      * @param nodo
      * @return True se o nodo tem filhos
      */
 	boolean isInternal(TNode<E> nodo);
 
-
     /**
      * @param nodo
      * @return True se o nodo nao tem filhos.
      */
 	boolean isExternal(TNode<E> nodo);
-
 
     /**
      * E a maior distancia entre o raiz e um nodo externo da
@@ -93,7 +84,6 @@ public interface Arvore<E> {
      */
 	int altura(TNode<E> nodo);
 
-
     /**
      * Numero de ancestrais do nodo, excluindo o proprio nodo.
      *
@@ -102,7 +92,6 @@ public interface Arvore<E> {
      */
 	int profundidade(TNode<E> nodo);
 
-
     /**
      * Visita primeiro o pai e depois os filhos.
      *
@@ -110,14 +99,12 @@ public interface Arvore<E> {
      */
 	String preOrder(TNode<E> nodo);
 
-
     /**
      * Visita primeiro os filhos e depois o pai.
      *
      * @param nodo
      */
 	String posOrder(TNode<E> nodo);
-
 
     /**
      * Pesquisa na subarvore do node pelo elemento.

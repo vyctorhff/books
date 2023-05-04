@@ -8,29 +8,23 @@
  */
 package base.cap6.iterator;
 
-/**
- *
- */
 public interface Iterador<E> {
 
-    public E next();
+    E next();
 
-
-    public boolean hasNext();
-
+    boolean hasNext();
 
     /**
      * Acrecenta o lemento na posicao corrente do iterador
      *
      * @param elemento
      */
-    public void add(E elemento);
-
+    void add(E elemento);
 
     /**
      * Remove o elemento na posicao corrente do iterador.
      *
      * @return elemento removido.
      */
-    public E remove();
+    E remove();
 }

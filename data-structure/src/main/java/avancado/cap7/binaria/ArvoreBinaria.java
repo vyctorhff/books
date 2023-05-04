@@ -10,9 +10,6 @@ package avancado.cap7.binaria;
 
 import avancado.cap7.TNode;
 
-/**
- *
- */
 public interface ArvoreBinaria<E> {
 
     /**
@@ -20,17 +17,13 @@ public interface ArvoreBinaria<E> {
      *
      * @param elemento
      */
-    public void addRaiz(E elemento);
+    void addRaiz(E elemento);
 
+    void inserirEsquerdo(TNode<E> node, E elemento);
 
-    public void inserirEsquerdo(TNode<E> node, E elemento);
+    void inserirDireito(TNode<E> node, E elemento);
 
-
-    public void inserirDireito(TNode<E> node, E elemento);
-
-
-    public E remover(TNode<E> node);
-
+    E remover(TNode<E> node);
 
     /**
      * Conecta a arvore esquerda e direita como subarvore no nodo
@@ -40,20 +33,15 @@ public interface ArvoreBinaria<E> {
      * @param esquerda
      * @param direita
      */
-    public void attach(TNode<E> node, ArvoreBinaria<E> esquerda, ArvoreBinaria<E> direita);
+    void attach(TNode<E> node, ArvoreBinaria<E> esquerda, ArvoreBinaria<E> direita);
 
+    TNode<E> esquerda(TNode<E> node);
 
-    public TNode<E> esquerda(TNode<E> node);
+    TNode<E> direita(TNode<E> node);
 
+    boolean hasEsquerdo(TNode<E> node);
 
-    public TNode<E> direita(TNode<E> node);
-
-
-    public boolean hasEsquerdo(TNode<E> node);
-
-
-    public boolean hasDireita(TNode<E> node);
-
+    boolean hasDireita(TNode<E> node);
 
     /**
      * Verifica se cada node tem dois filhos ou se nao tem nenhum filho.
@@ -61,5 +49,5 @@ public interface ArvoreBinaria<E> {
      * @param node
      * @return
      */
-    public boolean isPropria(TNode<E> node);
+    boolean isPropria(TNode<E> node);
 }
