@@ -1,2 +1,2 @@
-# books
-Examples, exercices found it in books
+# Books
+Examples, exercices and challenges found it on books;
