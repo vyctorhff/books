@@ -11,12 +11,12 @@ package avancado.cap7;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import avancado.cap7.AbstractNode;
+
 /**
  * Nodo para arvore generica.
  */
-public class TNode<E> {
-
-    private E elemento;
+public class TNode<E> extends AbstractNode<E> {
 
     private TNode<E> pai;
 
@@ -27,14 +27,6 @@ public class TNode<E> {
         this.pai = pai;
 
         filhos = new ArrayList<TNode<E>>();
-    }
-
-    public E getElemento() {
-        return elemento;
-    }
-
-    public void setElemento(E elemento) {
-        this.elemento = elemento;
     }
 
     public TNode<E> getPai() {
