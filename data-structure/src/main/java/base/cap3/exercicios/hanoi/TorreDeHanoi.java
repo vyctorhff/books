@@ -8,6 +8,8 @@
  */
 package base.cap3.exercicios.hanoi;
 
+import lombok.Getter;
+
 /**
  * Quebra-cabeca das torres de hanois.
  * <p>
@@ -56,13 +58,14 @@ package base.cap3.exercicios.hanoi;
  * Um vez feita a inversao o disco de maior valor podera avancas. Feito isso, devesse resolver
  * novamente para 'n - 1', um vez que o disco >= 'n - 1' esta no ponto de partida.
  */
+@Getter
 public class TorreDeHanoi {
 
     private final Pino pinoA;
     private final Pino pinoB;
     private final Pino pinoC;
 
-    private ImprimeTorreDeHanoi imprimirTorre;
+    private Printer imprimirTorre;
 
     private int numeroPassosResolucao;
 
@@ -77,8 +80,9 @@ public class TorreDeHanoi {
 
         inicializarPinoOrigem(pinoA);
 
-        if (mostrar)
-            imprimirTorre = new ImprimeTorreDeHanoi(this);
+        if (mostrar) {
+            imprimirTorre = new Printer(this);
+        }
     }
 
     /**
@@ -88,12 +92,11 @@ public class TorreDeHanoi {
      * @param pino
      */
     private void inicializarPinoOrigem(Pino pino) {
-
         int tamanhoPino = pino.getTamanhoPino();
 
-
-        for (int cont = tamanhoPino; cont > 0; cont--)
+        for (int cont = tamanhoPino; cont > 0; cont--) {
             pino.inserirDisco(cont);
+        }
     }
 
     public void resolver() {
@@ -125,7 +128,7 @@ public class TorreDeHanoi {
      * Metodo que movimenta o disco de maior valor do pino A para o C, procedendo
      * a inversao antes de realizar o segundo movimento
      *
-     * @param numeroDiscos2
+     * @param numeroDiscos
      */
     private void progredir(int numeroDiscos) {
         mover(pinoA, pinoB);
@@ -166,42 +169,13 @@ public class TorreDeHanoi {
         numeroPassosResolucao++;
 
         //Apos cada movimentos, mostra-se as torres.
-        if (imprimirTorre != null)
+        if (imprimirTorre != null) {
             imprimirTorre.mostrarTorreHanoi();
+        }
     }
 
-    /**
-     * @return the numeroDiscos
-     */
     public int getNumeroDiscos() {
         return numeroTotalDiscos;
     }
 
-    /**
-     * @return the numeroPassosResolucao
-     */
-    public int getNumeroPassosResolucao() {
-        return numeroPassosResolucao;
-    }
-
-    /**
-     * @return the pinoA
-     */
-    public Pino getPinoA() {
-        return pinoA;
-    }
-
-    /**
-     * @return the pinoB
-     */
-    public Pino getPinoB() {
-        return pinoB;
-    }
-
-    /**
-     * @return the pinoC
-     */
-    public Pino getPinoC() {
-        return pinoC;
-    }
 }

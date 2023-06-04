@@ -18,7 +18,7 @@ public class ImprimeTorreDeHanoiTest {
         TorreDeHanoi torre = new TorreDeHanoi(3, false);
         torre.resolver();
 
-        ImprimeTorreDeHanoi imprime = new ImprimeTorreDeHanoi(torre);
+        Printer imprime = new Printer(torre);
         imprime.mostrarTorreHanoi();
     }
 

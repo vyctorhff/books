@@ -10,7 +10,7 @@ package base.cap3.exercicios.hanoi;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class ImprimeTorreDeHanoi {
+public class Printer {
 
     public static final String STR_JOGO_DA_VELHA = "#";
     private final int TAMANHO_ESPACO_ANTES_TORRE = 10;
@@ -24,7 +24,7 @@ public class ImprimeTorreDeHanoi {
     private final Pino pinoB;
     private final Pino pinoC;
 
-    public ImprimeTorreDeHanoi(TorreDeHanoi torre) {
+    public Printer(TorreDeHanoi torre) {
         pinoA = torre.getPinoA();
         pinoB = torre.getPinoB();
         pinoC = torre.getPinoC();
