@@ -73,6 +73,10 @@ public class GameMeetAtTheForest {
             winner = checkWinner(player1, player2);
         } while (winner.isEmpty());
 
+        if (winner.isEmpty()) {
+            throw new IllegalStateException("Do not have a winner");
+        }
+
         mostraVencedor(winner.getAsInt());
     }
 
