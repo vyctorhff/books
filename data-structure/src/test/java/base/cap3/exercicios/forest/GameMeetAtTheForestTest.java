@@ -22,7 +22,7 @@ public class GameMeetAtTheForestTest {
 
     @BeforeEach
     void setup() {
-        this.game = new GameMeetAtTheForest(DEFAULT_PLAYER_AMOUNT);
+        this.game = new GameMeetAtTheForest();
     }
     
     @Test

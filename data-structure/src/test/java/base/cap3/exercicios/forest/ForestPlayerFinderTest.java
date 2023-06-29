@@ -8,20 +8,34 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ForestPlayerFinderTest {
+
+    private ForestPlayerFinder finder;
+
     private Forest forest;
 
     @BeforeEach
     void setup() {
         this.forest = new Forest(10);
+        this.finder = new ForestPlayerFinder(this.forest);
     }
 
-    @RepeatedTest(30)
-    void testFind() {
-        var finder = new ForestPlayerFinder(this.forest);
+    @RepeatedTest(50)
+    void findRandowIndexPositiveOnly() {
+        var index = finder.findRandomIndex();
+        assertTrue(index >= 0);
+    }
 
-        var meeting = finder.find();
+    @RepeatedTest(50)
+    void testFindIndexOtherPlayerPositiveOnly() {
+        var index = finder.findRandomIndex();
+        assertTrue(index >= 0);
+    }
 
-        assertNotNull(meeting);
-        assertNotEquals(meeting.index1(), meeting.index2());
+    @RepeatedTest(50)
+    void testFindIndexOtherPlayer() {
+        var index1 = finder.findRandomIndex();
+        var index2 = finder.findIndexOtherPlayer(index1);
+
+        assertNotEquals(index1, index2);
     }
 }

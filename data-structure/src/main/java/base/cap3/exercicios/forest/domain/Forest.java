@@ -41,6 +41,11 @@ public class Forest {
 
     public boolean isPlayerWon(int index) {
         for (int count = 0; count < this.getNumberPlayers(); count++) {
+            // ignoring a meet with itself
+            if (index == count) {
+                continue;
+            }
+
             if (!this.meets[index][count]) {
                 return false;
             }
