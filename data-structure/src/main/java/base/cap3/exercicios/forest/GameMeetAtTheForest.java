@@ -9,6 +9,7 @@
 package base.cap3.exercicios.forest;
 
 import base.cap3.exercicios.forest.domain.Forest;
+import base.cap3.exercicios.forest.domain.Meeting;
 import lombok.Getter;
 
 import java.util.OptionalInt;
@@ -30,17 +31,16 @@ public class GameMeetAtTheForest {
     public static final int MININUM_PLAYER_AMOUNT = 1_000;
 
     private Forest forest;
-    private final ForestPrinter printer;
+    private ForestPrinter printer;
+    private ForestPlayerFinder finder;
 
-    public GameMeetAtTheForest() {
-        this(MININUM_PLAYER_AMOUNT);
-    }
+    public GameMeetAtTheForest(ForestPlayerFinder finder, ForestPrinter printer) {
+        this.finder = finder;
+        this.printer = printer;
 
-    public GameMeetAtTheForest(int totalPlayerNumber) {
-        validar(totalPlayerNumber);
+        this.forest = this.finder.forest();
 
-        this.forest = new Forest(totalPlayerNumber);
-        this.printer = new ForestPrinter();
+        validar(this.forest.getNumberPlayers());
     }
 
     private void validar(int totalPlayerNumber) {
@@ -62,16 +62,22 @@ public class GameMeetAtTheForest {
 
             this.forest.meet(meeting);
 
-            if (this.forest.isPlayerWon(meeting.index1())) {
-                winner = OptionalInt.of(meeting.index1());
-            }
-
-            if (this.forest.isPlayerWon(meeting.index2())) {
-                winner = OptionalInt.of(meeting.index2());
-            }
+            winner = checkSameoneWon(winner, meeting);
         } while (winner.isEmpty());
 
         this.printer.mostraVencedor(winner.getAsInt());
+    }
+
+    private OptionalInt checkSameoneWon(OptionalInt winner, Meeting meeting) {
+        if (this.forest.isPlayerWon(meeting.index1())) {
+            return OptionalInt.of(meeting.index1());
+        }
+
+        if (this.forest.isPlayerWon(meeting.index2())) {
+            return OptionalInt.of(meeting.index2());
+        }
+
+        return OptionalInt.empty();
     }
 }
 
