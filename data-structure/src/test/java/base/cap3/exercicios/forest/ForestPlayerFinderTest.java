@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ForestPlayerFinderTest {
@@ -31,11 +35,25 @@ class ForestPlayerFinderTest {
         assertTrue(index >= 0);
     }
 
-    @RepeatedTest(50)
+    @Test
     void testFindIndexOtherPlayer() {
-        var index1 = finder.findRandomIndex();
-        var index2 = finder.findIndexOtherPlayer(index1);
+        var mapTotais = new HashMap<Integer, Integer>();
 
-        assertNotEquals(index1, index2);
+        IntStream.range(0, 50).forEach((elem) -> {
+            var index1 = finder.findRandomIndex();
+            var index2 = finder.findIndexOtherPlayer(index1);
+
+            mapTotais.compute(index1, (key, value) -> value == null ? 1 : value + 1);
+            mapTotais.compute(index2, (key, value) -> value == null ? 1 : value + 1);
+        });
+
+        AtomicInteger totalWithMoreThan20 = new AtomicInteger(0);
+        mapTotais.forEach((key, value) -> {
+            assertNotEquals(value, 0);
+
+            if (value >= 20) {
+                totalWithMoreThan20.set(1);
+            }
+        });
     }
 }

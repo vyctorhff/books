@@ -9,6 +9,7 @@
 package base.cap3.exercicios.forest;
 
 
+import base.cap3.exercicios.forest.domain.Forest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,11 +19,18 @@ public class GameMeetAtTheForestTest {
 
     public static final int DEFAULT_PLAYER_AMOUNT =  1_000;
 
+    private ForestPrinter printer;
+    private ForestPlayerFinder finder;
     private GameMeetAtTheForest game;
 
     @BeforeEach
     void setup() {
-        this.game = new GameMeetAtTheForest();
+        var forest = new Forest(DEFAULT_PLAYER_AMOUNT);
+
+        this.printer = new ForestPrinter();
+        this.finder = new ForestPlayerFinder(forest);
+
+        this.game = new GameMeetAtTheForest(finder, printer);
     }
     
     @Test
@@ -33,14 +41,14 @@ public class GameMeetAtTheForestTest {
     @Test
     void testStartInvalidNumberPlayers() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new GameMeetAtTheForest(0);
+            new GameMeetAtTheForest(new ForestPlayerFinder(new Forest(0)), printer);
         });
     }
 
     @Test
     void testMaximumPlayersNumber() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new GameMeetAtTheForest(1001);
+            new GameMeetAtTheForest(new ForestPlayerFinder(new Forest(1001)), printer);
         });
     }
 }
