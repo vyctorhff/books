@@ -29,8 +29,8 @@ public class ColorStackTest {
     @Test
     void testInitClass() {
         var colorStack = new ColorStackImpl<String>(new ColorAndStack[]{
-                new ColorAndStack<>(pilha, ColorStackEnum.BLUE),
-                new ColorAndStack<>(pilha, ColorStackEnum.RED)
+            new ColorAndStack<>(pilha, ColorStackEnum.BLUE),
+            new ColorAndStack<>(pilha, ColorStackEnum.RED)
         });
 
         assertNotNull(colorStack);
@@ -39,8 +39,8 @@ public class ColorStackTest {
     @Test
     void testStackColorOperation() {
         var colorStack = new ColorStackImpl<String>(new ColorAndStack[]{
-                new ColorAndStack<>(pilha, ColorStackEnum.BLUE),
-                new ColorAndStack<>(pilha, ColorStackEnum.RED)
+            new ColorAndStack<>(pilha, ColorStackEnum.BLUE),
+            new ColorAndStack<>(pilha, ColorStackEnum.RED)
         });
 
         colorStack.push("aaa", ColorStackEnum.BLUE);

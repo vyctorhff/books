@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FilaTest {
 
     private Fila<Integer> fila;
-    
+
     @BeforeEach
     public void setup() {
         fila = new FilaImp<>();

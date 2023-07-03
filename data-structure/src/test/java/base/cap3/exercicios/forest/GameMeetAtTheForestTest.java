@@ -13,11 +13,11 @@ import base.cap3.exercicios.forest.domain.Forest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GameMeetAtTheForestTest {
 
-    public static final int DEFAULT_PLAYER_AMOUNT =  1_000;
+    public static final int DEFAULT_PLAYER_AMOUNT = 1_000;
 
     private ForestPrinter printer;
     private ForestPlayerFinder finder;
@@ -32,7 +32,7 @@ public class GameMeetAtTheForestTest {
 
         this.game = new GameMeetAtTheForest(finder, printer);
     }
-    
+
     @Test
     void testStartValidGame() {
         game.play();

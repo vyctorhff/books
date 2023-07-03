@@ -67,7 +67,7 @@ public class ArrayCharacterMerge {
     }
 
     private boolean existsLetter(char letterSearch, char[] array) {
-        for (char letter: array) {
+        for (char letter : array) {
             if (letter == letterSearch) return true;
         }
 
@@ -75,7 +75,7 @@ public class ArrayCharacterMerge {
     }
 
     private boolean isEmpty(char[] array) {
-        for (char letter: array) {
+        for (char letter : array) {
             if (letter != Character.MIN_VALUE) return false;
         }
 

@@ -8,7 +8,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ReverseArrayTest {
 
@@ -34,10 +35,10 @@ class ReverseArrayTest {
 
     private static Stream<Arguments> sourceReverse() {
         return Stream.of(
-                Arguments.of(new int[]{1,2,3,4,5,6,7}),
-                Arguments.of(new int[]{7,6,5,4,3,2,1}),
-                Arguments.of(new int[]{4,1,6,3,5,7,2}),
-                Arguments.of(new int[]{7,7,7,7,7,7,7})
+            Arguments.of(new int[]{1, 2, 3, 4, 5, 6, 7}),
+            Arguments.of(new int[]{7, 6, 5, 4, 3, 2, 1}),
+            Arguments.of(new int[]{4, 1, 6, 3, 5, 7, 2}),
+            Arguments.of(new int[]{7, 7, 7, 7, 7, 7, 7})
         );
     }
 }

@@ -12,7 +12,7 @@ package base.cap3.exercicios.criptografia;
  * A Cifra de Cesar(criptografia de Cesar) implica em substituir cada letra de
  * uma mensagem pela letra que esta a tres letras de distancia no alfabeto da
  * lingua.
- *
+ * <p>
  * Assim, substitui-se o A por D, B por E etc.
  */
 public class CryptographyCesar implements CryptographyArray {
@@ -20,8 +20,8 @@ public class CryptographyCesar implements CryptographyArray {
     private final int DISTANCIA_NO_ALFABETO = 3;
 
     private final char[] ALPHABET = {
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
     };
 
     private final char[] shurflled;

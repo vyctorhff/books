@@ -6,8 +6,6 @@ package base.cap3.recursao;
 
 import util.ArrayUtils;
 
-import java.util.stream.IntStream;
-
 /*
  * Recursion binaryis a two call for recursion methon to solver a problem
  *

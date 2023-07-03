@@ -16,13 +16,13 @@ import java.util.OptionalInt;
 
 /**
  * Suponha um jogo para até 1000 jogadores jogadores.
- *
+ * <p>
  * O vencedor deste jogo é o primeiro jogador que puder encontrar todos os demais pelo menos
  * uma vez(cordas sao permitidas).
- *
+ * <p>
  * Assumindo que existe um metodo encontro(i, j) que e chamado cada vez que o jogador i encontra
  * o jogador j (com i != j). Quando i encontra com j é o mesmo que j encontrar o i.
- *
+ * <p>
  * Descreva uma maneira de manter os pares de jogadores que se encontram e quem e o vencedor.
  */
 @Getter

@@ -13,7 +13,8 @@ import lombok.Setter;
 
 public class CircularNode {
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private CircularNode next;
 
     @Getter

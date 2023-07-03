@@ -11,7 +11,7 @@ package base.cap3.listas.circular;
 /**
  * É uma lista encadeada que não possui head nem tail. E o último elemento
  * aponta para o primeiro.
- *
+ * <p>
  * As operações de insert e remove são sempre feitas no próximo, já que não há referência para o prev.
  * Desta forma, sempre devesse avaliar o next do cursor, nunca ele mesmo.
  */

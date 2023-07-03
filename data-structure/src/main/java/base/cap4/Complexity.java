@@ -8,7 +8,7 @@ package base.cap4;
  * Função quadrática
  * Função cúbica
  * Função exponencial
- *
+ * <p>
  * Todas elas são funções polinomiais
  */
 public class Complexity {

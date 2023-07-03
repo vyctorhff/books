@@ -1,9 +1,6 @@
 package base.cap3.exercicios.forest.domain;
 
-import base.cap3.exercicios.forest.ForestPlayerFinder;
-import org.apache.commons.lang3.NotImplementedException;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -60,9 +57,9 @@ class ForestTest {
 
     private static Stream<Arguments> sourceMeetWithInvalid() {
         return Stream.of(
-                Arguments.of(new Meeting(-1, -1)),
-                Arguments.of(new Meeting(-1, 0)),
-                Arguments.of(new Meeting(0, -1))
+            Arguments.of(new Meeting(-1, -1)),
+            Arguments.of(new Meeting(-1, 0)),
+            Arguments.of(new Meeting(0, -1))
         );
     }
 }

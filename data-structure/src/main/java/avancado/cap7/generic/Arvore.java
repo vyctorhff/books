@@ -21,7 +21,7 @@ public interface Arvore<E> {
      *
      * @return
      */
-	TNode<E> getRaiz();
+    TNode<E> getRaiz();
 
     int size();
 
@@ -30,21 +30,21 @@ public interface Arvore<E> {
      *
      * @return
      */
-	boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Iterador de todos os elementos da arvore.
      *
      * @return
      */
-	Iterador<E> iterator();
+    Iterador<E> iterator();
 
     /**
      * Iterador de todos os nodos da arvore
      *
      * @return
      */
-	Iterador<E> positions();
+    Iterador<E> positions();
 
     /**
      * Substitui o elemento armazenado em um dado nodo.
@@ -53,7 +53,7 @@ public interface Arvore<E> {
      * @param elemento
      * @return Retorna o elementos substituido.
      */
-	E replace(TNode<E> nodo, E elemento);
+    E replace(TNode<E> nodo, E elemento);
 
     /**
      * Retorna o pai do nodo
@@ -61,19 +61,19 @@ public interface Arvore<E> {
      * @param nodo
      * @return
      */
-	TNode<E> parent(TNode<E> nodo);
+    TNode<E> parent(TNode<E> nodo);
 
     /**
      * @param nodo
      * @return True se o nodo tem filhos
      */
-	boolean isInternal(TNode<E> nodo);
+    boolean isInternal(TNode<E> nodo);
 
     /**
      * @param nodo
      * @return True se o nodo nao tem filhos.
      */
-	boolean isExternal(TNode<E> nodo);
+    boolean isExternal(TNode<E> nodo);
 
     /**
      * E a maior distancia entre o raiz e um nodo externo da
@@ -82,7 +82,7 @@ public interface Arvore<E> {
      * @param nodo
      * @return
      */
-	int altura(TNode<E> nodo);
+    int altura(TNode<E> nodo);
 
     /**
      * Numero de ancestrais do nodo, excluindo o proprio nodo.
@@ -90,21 +90,21 @@ public interface Arvore<E> {
      * @param nodo
      * @return
      */
-	int profundidade(TNode<E> nodo);
+    int profundidade(TNode<E> nodo);
 
     /**
      * Visita primeiro o pai e depois os filhos.
      *
      * @param nodo
      */
-	String preOrder(TNode<E> nodo);
+    String preOrder(TNode<E> nodo);
 
     /**
      * Visita primeiro os filhos e depois o pai.
      *
      * @param nodo
      */
-	String posOrder(TNode<E> nodo);
+    String posOrder(TNode<E> nodo);
 
     /**
      * Pesquisa na subarvore do node pelo elemento.
@@ -113,5 +113,5 @@ public interface Arvore<E> {
      * @param elemento
      * @return Elemento da subarvore, senao null.
      */
-	TNode<E> pesquisar(TNode<E> nodo, E elemento);
+    TNode<E> pesquisar(TNode<E> nodo, E elemento);
 }

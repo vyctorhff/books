@@ -10,9 +10,9 @@ package base.cap3.exercicios.criptografia;
 
 public interface CryptographyArray {
 
-  char[] getOriginal();
+    char[] getOriginal();
 
-  char[] getShuflled();
+    char[] getShuflled();
 
-  boolean isIgnoreWhiteSpace();
+    boolean isIgnoreWhiteSpace();
 }

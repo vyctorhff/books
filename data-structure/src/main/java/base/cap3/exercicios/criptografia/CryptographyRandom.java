@@ -12,28 +12,28 @@ import java.util.Random;
 
 /**
  * Descricacao do problema
- *
+ * <p>
  * Solucao:
- *
+ * <p>
  * criptografar: para cada letra da mensagem limpa.
  * 1) Localize o indice no alfabeto
  * 2) Localize a letra na chave com o indice do passo 1.
  * 3) Inserir na mensagem a letra do passo 2.
- *
+ * <p>
  * descriptografar: para cada letra da mensagem cifrada.
  * 1) Localize o indce na chave.
  * 2) Localize a letra no alfabeto com o indice do passo 1.
  * 3) Inserir na mensagem a letra do passo 2.
- *
+ * <p>
  * Nao implementei por ter que estudar para a pratica de projeto e para
  * o emprego.
  */
 public class CryptographyRandom implements CryptographyArray {
 
     private final char[] ALPHABET = {
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            '!', '?', ' '
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        '!', '?', ' '
     };
 
     private char[] shuflled;

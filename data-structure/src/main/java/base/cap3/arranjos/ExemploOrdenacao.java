@@ -8,7 +8,6 @@
  */
 package base.cap3.arranjos;
 
-import java.util.Optional;
 import java.util.Random;
 
 /**
