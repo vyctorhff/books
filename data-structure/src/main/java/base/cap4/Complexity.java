@@ -1,5 +1,8 @@
 package base.cap4;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 /**
  * Função constante
  * Função linear
@@ -60,6 +63,17 @@ public class Complexity {
          * Função que para cada parametro será executando o número de elementros elevado a 2
          * Gráfico: curvado para cima de forma acentuada
          */
+
+        var array1 = new int[2];
+        var array2 = new int[2];
+
+        Arrays.stream(array1).forEach((el1) -> {
+            Arrays.stream(array2).forEach((el2) -> {
+
+                System.out.println(el1 + el2);
+            });
+        });
+
         return param ^ 2;
     }
 
@@ -70,7 +84,19 @@ public class Complexity {
          *
          * Gráfico: curvado para cima de forma acentuada.
          */
-        return 0.0;
+        var array1 = new int[2];
+        var array2 = new int[2];
+        var array3 = new int[2];
+
+        Arrays.stream(array1).forEach((el1) -> {
+            Arrays.stream(array2).forEach((el2) -> {
+                Arrays.stream(array3).forEach((el3) -> {
+                    System.out.println(el1 + el2 + el3);
+                });
+            });
+        });
+
+        return param ^ 3;
     }
 
     private static double funcaoExponencial(int param) {
@@ -80,6 +106,6 @@ public class Complexity {
          *
          * Gráfico: curvado extremamente acentuado
          */
-        return 0.0;
+        return 10 ^ param;
     }
 }
