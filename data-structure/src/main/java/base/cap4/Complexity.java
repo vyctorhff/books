@@ -46,6 +46,9 @@ public class Complexity {
 
     private static double funcaoLogN(int param) {
         /**
+         * Função que inicia com um número de elements N, mas acada iteração, este número dimunie.
+         * Assim a quando de execução começa N, mas quantidade de iteração vai dimunindo.
+         *
          * Gráfico: é um curva que começa subindo rápido, mas que fica paralela
          */
         return 0.0;
@@ -53,6 +56,9 @@ public class Complexity {
 
     private static double funcaoNlogN(int param) {
         /**
+         * Combina o tempos de execução do linear mais log N. porém o tempo de exeução
+         * e maior que o linear.
+         *
          * Gráfico: é uma curva levemente subindo
          */
         return 0.0;
