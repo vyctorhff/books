@@ -75,7 +75,6 @@ public class Complexity {
 
         Arrays.stream(array1).forEach((el1) -> {
             Arrays.stream(array2).forEach((el2) -> {
-
                 System.out.println(el1 + el2);
             });
         });
@@ -112,6 +111,10 @@ public class Complexity {
          *
          * Gráfico: curvado extremamente acentuado
          */
-        return 10 ^ param;
+
+        // Exemplo de código seria a chamada recursiva para a solução do fibonacci.
+        // que baseado em um entrada constante, precisa fazer um chamada exponencialmente para
+        // obter a solução
+        return 0.0;
     }
 }
