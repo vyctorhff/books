@@ -11,8 +11,17 @@ import java.util.stream.Stream;
  * Função quadrática
  * Função cúbica
  * Função exponencial
- * <p>
+ *
  * Todas elas são funções polinomiais
+ *
+ * Operações primitiva são aquelas que contam com tempo de 1
+ * - atribuição de variável
+ * - chamada de métodos
+ * - operações aritméticas
+ * - comparação de números
+ * - acesso a arranjo
+ * - seguir referência a objeto
+ * - retorno de método
  */
 public class Complexity {
 
