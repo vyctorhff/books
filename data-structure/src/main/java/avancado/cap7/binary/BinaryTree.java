@@ -7,4 +7,6 @@ package avancado.cap7.binary;
  *
  */
 public class BinaryTree<E> {
+
+    private BinaryNode<E> root;
 }
