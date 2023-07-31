@@ -8,6 +8,9 @@
  */
 package base.cap3.exercicios.criptografia;
 
+import br.study.base.cap3.exercicios.criptografia.Cryptography;
+import br.study.base.cap3.exercicios.criptografia.CryptographyArray;
+import br.study.base.cap3.exercicios.criptografia.CryptographyCesar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

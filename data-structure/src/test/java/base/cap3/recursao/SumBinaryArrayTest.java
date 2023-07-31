@@ -1,5 +1,6 @@
 package base.cap3.recursao;
 
+import br.study.base.cap3.recursao.SumBinaryArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

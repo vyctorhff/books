@@ -9,6 +9,7 @@
 package base.cap6.listas;
 
 
+import br.study.base.cap6.listas.ListaArranjo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

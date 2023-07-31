@@ -1,5 +1,6 @@
 package base.cap3.exercicios.criptografia;
 
+import br.study.base.cap3.exercicios.criptografia.ArrayCharacterMerge;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

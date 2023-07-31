@@ -8,6 +8,10 @@
  */
 package base.cap5.filas.roundrobin;
 
+import br.study.base.cap5.filas.roundrobin.AppUmBilhao;
+import br.study.base.cap5.filas.roundrobin.AppUmBilhaoArrobas;
+import br.study.base.cap5.filas.roundrobin.EscalonadorRoundRobin;
+import br.study.base.cap5.filas.roundrobin.Processo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

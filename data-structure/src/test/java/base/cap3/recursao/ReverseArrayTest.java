@@ -1,5 +1,6 @@
 package base.cap3.recursao;
 
+import br.study.base.cap3.recursao.ReverseArray;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

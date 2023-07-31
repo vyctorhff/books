@@ -8,6 +8,7 @@
  */
 package base.cap3.listas.simples;
 
+import br.study.base.cap3.listas.simples.ListaGenerica;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

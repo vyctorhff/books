@@ -9,6 +9,8 @@
 package base.cap3.listas.circular;
 
 
+import br.study.base.cap3.listas.circular.CircularNode;
+import br.study.base.cap3.listas.circular.ListaCircular;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

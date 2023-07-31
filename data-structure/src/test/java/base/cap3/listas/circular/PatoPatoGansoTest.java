@@ -8,6 +8,7 @@
  */
 package base.cap3.listas.circular;
 
+import br.study.base.cap3.listas.circular.PatoPatoGanso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,7 @@
 package base.cap3.exercicios.forest.domain;
 
+import br.study.base.cap3.exercicios.forest.domain.Forest;
+import br.study.base.cap3.exercicios.forest.domain.Meeting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

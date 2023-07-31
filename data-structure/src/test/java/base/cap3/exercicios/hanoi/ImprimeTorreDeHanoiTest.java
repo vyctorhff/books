@@ -8,6 +8,8 @@
  */
 package base.cap3.exercicios.hanoi;
 
+import br.study.base.cap3.exercicios.hanoi.Printer;
+import br.study.base.cap3.exercicios.hanoi.TorreDeHanoi;
 import org.junit.jupiter.api.Test;
 
 public class ImprimeTorreDeHanoiTest {

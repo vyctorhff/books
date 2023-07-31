@@ -8,6 +8,8 @@
  */
 package base.cap5.pilhas;
 
+import br.study.base.cap5.pilhas.Pilha;
+import br.study.base.cap5.pilhas.PilhaArranjo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

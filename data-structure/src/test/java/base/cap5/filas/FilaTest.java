@@ -8,6 +8,8 @@
  */
 package base.cap5.filas;
 
+import br.study.base.cap5.filas.Fila;
+import br.study.base.cap5.filas.FilaImp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

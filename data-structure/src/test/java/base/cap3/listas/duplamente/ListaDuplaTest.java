@@ -8,6 +8,8 @@
  */
 package base.cap3.listas.duplamente;
 
+import br.study.base.cap3.listas.duplamente.ListaDupla;
+import br.study.base.cap3.listas.duplamente.NodoDuplo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

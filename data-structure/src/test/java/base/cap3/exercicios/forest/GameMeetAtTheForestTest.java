@@ -9,7 +9,11 @@
 package base.cap3.exercicios.forest;
 
 
-import base.cap3.exercicios.forest.domain.Forest;
+import br.study.base.cap3.exercicios.forest.ForestPlayerFinder;
+
+import br.study.base.cap3.exercicios.forest.ForestPrinter;
+import br.study.base.cap3.exercicios.forest.GameMeetAtTheForest;
+import br.study.base.cap3.exercicios.forest.domain.Forest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

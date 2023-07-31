@@ -8,8 +8,11 @@
  */
 package base.cap5.exercicios.colorStack;
 
-import base.cap5.pilhas.Pilha;
-import base.cap5.pilhas.PilhaArranjo;
+import br.study.base.cap5.exercicios.colorStack.ColorAndStack;
+import br.study.base.cap5.exercicios.colorStack.ColorStackEnum;
+import br.study.base.cap5.exercicios.colorStack.ColorStackImpl;
+import br.study.base.cap5.pilhas.Pilha;
+import br.study.base.cap5.pilhas.PilhaArranjo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

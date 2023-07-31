@@ -1,5 +1,6 @@
 package util;
 
+import br.study.util.ArrayUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
