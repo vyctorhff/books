@@ -23,11 +23,11 @@ package br.study.mixing.base64;
  */
 public class Base64Impl {
 
-    public String encode(String input) {
+    public String encode(String input) throws Base64Exception {
         return null;
     }
 
-    public String decode(String input) {
+    public String decode(String input) throws Base64Exception {
         return null;
     }
 }
