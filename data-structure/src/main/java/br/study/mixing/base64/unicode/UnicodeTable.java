@@ -4,6 +4,8 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 @Data
 public class UnicodeTable {
@@ -115,4 +117,19 @@ public class UnicodeTable {
         );
     }
 
+    public OptionalInt findByCharacter(String input) {
+        var optUnicodeInfo = this.list.stream()
+            .filter(unicodeInfo -> input.equals(unicodeInfo.getCharacterAsString()))
+            .findFirst();
+
+        if (optUnicodeInfo.isPresent()) {
+            return OptionalInt.of(optUnicodeInfo.get().getCodeAsInteger());
+        }
+
+        return OptionalInt.empty();
+    }
+
+    public Optional<String> findByCode(int code) {
+        return Optional.empty();
+    }
 }
