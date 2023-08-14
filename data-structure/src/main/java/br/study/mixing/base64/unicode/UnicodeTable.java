@@ -87,49 +87,45 @@ public class UnicodeTable {
             new UnicodeInfo(97, 'a'),
             new UnicodeInfo(98, 'b'),
             new UnicodeInfo(99, 'c'),
-            new UnicodeInfo(10,	'd'),
-            new UnicodeInfo(10,	'e'),
-            new UnicodeInfo(10,	'f'),
-            new UnicodeInfo(10,	'g'),
-            new UnicodeInfo(10,	'h'),
-            new UnicodeInfo(10,	'i'),
-            new UnicodeInfo(10,	'j'),
-            new UnicodeInfo(10,	'k'),
-            new UnicodeInfo(10,	'l'),
-            new UnicodeInfo(10,	'm'),
-            new UnicodeInfo(11,	'n'),
-            new UnicodeInfo(11,	'o'),
-            new UnicodeInfo(11,	'p'),
-            new UnicodeInfo(11,	'q'),
-            new UnicodeInfo(11,	'r'),
-            new UnicodeInfo(11,	's'),
-            new UnicodeInfo(11,	't'),
-            new UnicodeInfo(11,	'u'),
-            new UnicodeInfo(11,	'v'),
-            new UnicodeInfo(11,	'w'),
-            new UnicodeInfo(12,	'x'),
-            new UnicodeInfo(12,	'y'),
-            new UnicodeInfo(12,	'z'),
-            new UnicodeInfo(12,	'{'),
-            new UnicodeInfo(12,	'|'),
-            new UnicodeInfo(12,	'}'),
-            new UnicodeInfo(12,	'~')
+            new UnicodeInfo(100,	'd'),
+            new UnicodeInfo(101,	'e'),
+            new UnicodeInfo(102,	'f'),
+            new UnicodeInfo(103,	'g'),
+            new UnicodeInfo(104,	'h'),
+            new UnicodeInfo(105,	'i'),
+            new UnicodeInfo(106,	'j'),
+            new UnicodeInfo(107,	'k'),
+            new UnicodeInfo(108,	'l'),
+            new UnicodeInfo(109,	'm'),
+            new UnicodeInfo(110,	'n'),
+            new UnicodeInfo(111,	'o'),
+            new UnicodeInfo(112,	'p'),
+            new UnicodeInfo(113,	'q'),
+            new UnicodeInfo(114,	'r'),
+            new UnicodeInfo(115,	's'),
+            new UnicodeInfo(116,	't'),
+            new UnicodeInfo(117,	'u'),
+            new UnicodeInfo(118,	'v'),
+            new UnicodeInfo(119,	'w'),
+            new UnicodeInfo(120,	'x'),
+            new UnicodeInfo(121,	'y'),
+            new UnicodeInfo(122,	'z'),
+            new UnicodeInfo(123,	'{'),
+            new UnicodeInfo(124,	'|'),
+            new UnicodeInfo(125,	'}'),
+            new UnicodeInfo(126,	'~')
         );
     }
 
-    public OptionalInt findByCharacter(String input) {
-        var optUnicodeInfo = this.list.stream()
+    public Optional<UnicodeInfo> findByCharacter(String input) {
+        return this.list.stream()
             .filter(unicodeInfo -> input.equals(unicodeInfo.getCharacterAsString()))
             .findFirst();
-
-        if (optUnicodeInfo.isPresent()) {
-            return OptionalInt.of(optUnicodeInfo.get().getCodeAsInteger());
-        }
-
-        return OptionalInt.empty();
     }
 
-    public Optional<String> findByCode(int code) {
-        return Optional.empty();
+    public Optional<UnicodeInfo> findByCode(int code) {
+        return this.list.stream()
+            .filter(unicodeInfo -> code == unicodeInfo.getCode())
+            .findFirst();
     }
 }
