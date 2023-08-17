@@ -1,5 +1,6 @@
 package br.study.mixing.base64.grouping.impl;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,6 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class GroupByteInSixPartsTest {
 
     private GroupByteInSixParts sut;
+
+    @BeforeEach
+    void setup() {
+        this.sut = new GroupByteInSixParts();
+    }
 
     @ParameterizedTest
     @MethodSource("sourceGroupParts")
