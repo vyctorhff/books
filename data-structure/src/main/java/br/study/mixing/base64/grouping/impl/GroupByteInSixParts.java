@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Group 8 parts in 6 parts.
@@ -26,42 +25,17 @@ public class GroupByteInSixParts implements GrouppingBytes {
         var listResult = new ArrayList<String>();
 
         listStringOfBytes.forEach(groupByte -> {
-            transform(groupByte, listResult);
+            var transform = new TransformModel(groupByte, listResult);
+
+            if (transform.lastIndexIsFull()) {
+                transform.addSixNumberFromBeginning();
+                transform.addTwoNumberFromEnding();
+            } else {
+                transform.addSixNumberFromEnding();
+                transform.addTwoNumberFromBeginning();
+            }
         });
 
         return StringUtils.join(listStringOfBytes, StringUtils.SPACE);
-    }
-
-    private void transform(String groupByte, List<String> listResult) {
-        // check how much left for the last item in the array
-        // if none then add 6 numbers and 2 in the next index of the list
-        // else add 2 numbers and 6 in the next index of the list
-    }
-
-    private boolean lastIndexIsFull(List<String> list) {
-        if (list == null || list.isEmpty()) {
-            throw new IllegalArgumentException("List of groups invalide");
-        }
-
-        var last = list.get(list.size() - 1);
-        return !last.isBlank() || last.length() == 6;
-    }
-
-    private void addSixNumber(String partOfEightBits, List<String> list, boolean atStart) {
-        if (atStart) {
-            list.add(partOfEightBits.substring(0, 6));
-            return;
-        }
-
-        list.add(partOfEightBits.substring(2, 8));
-    }
-
-    private void addTwoNumber(String partOfEightBits, List<String> list, boolean atStart) {
-        if (atStart) {
-            list.add(partOfEightBits.substring(0, 2));
-            return;
-        }
-
-        list.add(partOfEightBits.substring(6, 8));
     }
 }
