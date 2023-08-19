@@ -47,11 +47,21 @@ public class GroupByteInSixParts implements GrouppingBytes {
         return !last.isBlank() || last.length() == 6;
     }
 
-    private void addSixNumber(String partOfEightBits, List<String> list) {
-        list.add(partOfEightBits.substring(0, 6));
-        list.add(partOfEightBits.substring(6, 8));
+    private void addSixNumber(String partOfEightBits, List<String> list, boolean atStart) {
+        if (atStart) {
+            list.add(partOfEightBits.substring(0, 6));
+            return;
+        }
+
+        list.add(partOfEightBits.substring(2, 8));
     }
 
-    private void addTwoNumber(String partOfEightBits, List<String> list) {
+    private void addTwoNumber(String partOfEightBits, List<String> list, boolean atStart) {
+        if (atStart) {
+            list.add(partOfEightBits.substring(0, 2));
+            return;
+        }
+
+        list.add(partOfEightBits.substring(6, 8));
     }
 }
