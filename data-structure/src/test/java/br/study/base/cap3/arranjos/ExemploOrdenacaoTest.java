@@ -8,7 +8,6 @@
  */
 package br.study.base.cap3.arranjos;
 
-import br.study.base.cap3.arranjos.ExemploOrdenacao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
