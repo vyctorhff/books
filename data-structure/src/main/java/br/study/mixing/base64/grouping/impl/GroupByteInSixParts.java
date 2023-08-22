@@ -26,14 +26,7 @@ public class GroupByteInSixParts implements GrouppingBytes {
 
         listStringOfBytes.forEach(groupByte -> {
             var transform = new TransformModel(groupByte, listResult);
-
-            if (transform.lastIndexIsFull()) {
-                transform.addSixNumberFromBeginning();
-                transform.addTwoNumberFromEnding();
-            } else {
-                transform.addSixNumberFromEnding();
-                transform.addTwoNumberFromBeginning();
-            }
+            transform.add();
         });
 
         return StringUtils.join(listStringOfBytes, StringUtils.SPACE);
