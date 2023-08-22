@@ -1,5 +1,6 @@
 package br.study.mixing.base64.grouping.impl;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,9 +17,31 @@ class TransformModelTest {
 
     @Test
     void shouldAddSixNumbersAndAddTwoNumbers() {
+        Assertions.fail();
     }
 
     @Test
     void shouldAddTwoNumbersAndSixNumbers() {
+        Assertions.fail();
+    }
+
+    @Test
+    void shouldAddSixNumbersAtTheBeginning() {
+        Assertions.fail();
+    }
+
+    @Test
+    void shouldAddTwoNumbersAtTheBeginning() {
+        Assertions.fail();
+    }
+
+    @Test
+    void shouldAddSixNumbersAtTheEnding() {
+        Assertions.fail();
+    }
+
+    @Test
+    void shouldAddTwoNumbersAtTheEnding() {
+        Assertions.fail();
     }
 }

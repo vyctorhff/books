@@ -13,10 +13,12 @@ public record TransformModel(String groupPart, List<String> listResult) {
         if (this.lastIndexIsFull()) {
             this.addSixNumberFromBeginning();
             this.addTwoNumberFromEnding();
-        } else {
-            this.addSixNumberFromEnding();
-            this.addTwoNumberFromBeginning();
+
+            return;
         }
+
+        this.addSixNumberFromEnding();
+        this.addTwoNumberFromBeginning();
     }
 
     public boolean lastIndexIsFull() {
