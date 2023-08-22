@@ -9,6 +9,16 @@ public record TransformModel(String groupPart, List<String> listResult) {
     private static final int INDEX_SIX = 6;
     private static final int INDEX_END = 8;
 
+    public void add() {
+        if (this.lastIndexIsFull()) {
+            this.addSixNumberFromBeginning();
+            this.addTwoNumberFromEnding();
+        } else {
+            this.addSixNumberFromEnding();
+            this.addTwoNumberFromBeginning();
+        }
+    }
+
     public boolean lastIndexIsFull() {
         if (listResult == null || listResult.isEmpty()) {
             throw new IllegalArgumentException("List of groups invalide");
