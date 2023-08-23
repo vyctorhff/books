@@ -46,4 +46,7 @@ public record TransformModel(String groupPart, List<String> listResult) {
         listResult.add(groupPart.substring(INDEX_SIX, INDEX_END));
     }
 
+    public String getResult() {
+        return "";
+    }
 }
