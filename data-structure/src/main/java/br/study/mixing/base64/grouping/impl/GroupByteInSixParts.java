@@ -4,9 +4,6 @@ import br.study.mixing.base64.grouping.GrouppingBytes;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * Group 8 parts in 6 parts.
  * Ex:
@@ -21,14 +18,14 @@ public class GroupByteInSixParts implements GrouppingBytes {
             throw new IllegalArgumentException("Could not group, invalid content");
         }
 
-        var listStringOfBytes = Arrays.stream(content.split(StringUtils.SPACE));
-        var listResult = new ArrayList<String>();
+        var numberBuffer = new NumberBuffer();
 
-        listStringOfBytes.forEach(groupByte -> {
-            var transform = new TransformModel(groupByte, listResult);
-            transform.add();
-        });
+        for (char value : content.toCharArray()) {
+            numberBuffer.add(value);
+        }
 
-        return StringUtils.join(listStringOfBytes, StringUtils.SPACE);
+        // still remains something
+        numberBuffer.packWithZeros();
+        return String.join(" ", numberBuffer.getList());
     }
 }
