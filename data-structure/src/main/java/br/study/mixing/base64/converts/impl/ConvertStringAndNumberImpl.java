@@ -2,7 +2,7 @@ package br.study.mixing.base64.converts.impl;
 
 import br.study.mixing.base64.Base64Exception;
 import br.study.mixing.base64.converts.ConvertStringAndNumber;
-import br.study.mixing.base64.unicode.UnicodeTable;
+import br.study.mixing.base64.table.unicode.UnicodeTable;
 
 /**
  * Using the ASC II(UNICODE), transform a character to a decimal.

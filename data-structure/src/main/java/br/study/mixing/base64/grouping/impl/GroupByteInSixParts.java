@@ -24,7 +24,7 @@ public class GroupByteInSixParts implements GrouppingBytes {
             numberBuffer.add(value);
         }
 
-        // still remains something
+        // if still remains something
         numberBuffer.packWithZeros();
         return String.join(" ", numberBuffer.getList());
     }

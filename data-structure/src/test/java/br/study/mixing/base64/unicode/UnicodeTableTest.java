@@ -1,5 +1,6 @@
 package br.study.mixing.base64.unicode;
 
+import br.study.mixing.base64.table.unicode.UnicodeTable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,8 +1,8 @@
 package br.study.mixing.base64.converts.impl;
 
 import br.study.mixing.base64.Base64Exception;
-import br.study.mixing.base64.unicode.UnicodeInfo;
-import br.study.mixing.base64.unicode.UnicodeTable;
+import br.study.mixing.base64.table.TableInfo;
+import br.study.mixing.base64.table.unicode.UnicodeTable;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,10 +18,10 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ConvertStringAndNumberImplTest {
 
-    public static final UnicodeInfo UNICODE_INFO =
-        new UnicodeInfo(2, 'A');
+    public static final TableInfo UNICODE_INFO =
+        new TableInfo(2, 'A');
 
-    public static final Optional<UnicodeInfo> UNICODE_INFO_OPT =
+    public static final Optional<TableInfo> UNICODE_INFO_OPT =
         Optional.of(UNICODE_INFO);
 
     @InjectMocks
