@@ -1,4 +1,4 @@
-package br.study.mixing.base64.unicode;
+package br.study.mixing.base64.table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UnicodeInfo {
+public class TableInfo {
 
     private short code;
 
     private Character value;
 
-    public UnicodeInfo(int code, Character character) {
+    public TableInfo(int code, Character character) {
         this.code = (short) code;
         this.value = character;
     }
