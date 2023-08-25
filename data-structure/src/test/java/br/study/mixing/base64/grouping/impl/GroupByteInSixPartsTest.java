@@ -11,7 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
 class GroupByteInSixPartsTest {
@@ -28,14 +28,14 @@ class GroupByteInSixPartsTest {
     void shouldGroupParts(String input, String expected) {
         String result = sut.process(input);
 
-        assertFalse(StringUtils.isNotBlank(result));
+        assertTrue(StringUtils.isNotBlank(result));
         assertEquals(expected, result);
     }
 
     private static Stream<Arguments> sourceGroupParts() {
         return Stream.of(
-            Arguments.of("00000000", "000000 00"),
-            Arguments.of("00000000 00000000", "000000 000000 0000"),
+            Arguments.of("00000000", "000000 000000"),
+            Arguments.of("00000000 00000000", "000000 000000 000000"),
             Arguments.of("00000000 00000000 00000000", "000000 000000 000000 000000")
         );
     }

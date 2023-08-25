@@ -3,14 +3,9 @@ package br.study.mixing.base64.grouping.impl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class NumberBufferTest {
@@ -26,27 +21,74 @@ class NumberBufferTest {
     }
 
     @Test
-    void should() {
+    void shouldBeEmptyListWhenNotWasAdded() {
+        var numberBuffer = new NumberBuffer();
+        assertTrue(numberBuffer.getList().isEmpty());
     }
 
-    @ParameterizedTest
-    @MethodSource("sourceAdd")
-    void shouldAddWhenIndexIsFull(String source, String expected, List<String> list) {
-    }
-
-    private static Stream<Arguments> sourceAdd() {
-        var emptyList = new ArrayList<>();
-
-        var listWithTwo = new ArrayList<>(List.of("01"));
-        var listWithSix = new ArrayList<>(List.of("012345"));
-
-        var listWithSixAndTwo = new ArrayList<>(List.of("012345", "67"));
-
-        return Stream.of(
-            Arguments.of( SEQUENCE_OF_EIGHT, "012345 67", emptyList),
-            Arguments.of(SEQUENCE_OF_EIGHT_LETTER, "01abcd ef", listWithTwo),
-            Arguments.of(SEQUENCE_OF_EIGHT_LETTER, "012345 abcdef gh", listWithSix)
-//            Arguments.of(SEQUENCE_OF_EIGHT_LETTER, "012345 67abcf", listWithSixAndTwo)
+    @Test
+    void shouldPackSixCharacter() {
+        var numberBuffer = createNumberBufferWithValues(
+            '0', '1', '2', '3', '4', '5'
         );
+
+        assertFalse(numberBuffer.getList().isEmpty());
+    }
+
+    @Test
+    void shouldNotPackFourCharacter() {
+        var numberBuffer = createNumberBufferWithValues(
+            '0', '1', '2', '3', '4'
+        );
+
+        assertTrue(numberBuffer.getList().isEmpty());
+    }
+
+    @Test
+    void shouldNotPackSixEmptySpace() {
+        var numberBuffer = createNumberBufferWithValues(' ', ' ', ' ', ' ', ' ', ' ');
+
+        assertTrue(numberBuffer.getList().isEmpty());
+    }
+
+    @Test
+    void shouldPackWithZerosWhenFourNumber() {
+        var numberBuffer = createNumberBufferWithValues('0', '1', '2', '3');
+
+        numberBuffer.packWithZeros();
+        assertEquals("012300", numberBuffer.getList().get(0));
+    }
+
+    @Test
+    void shouldPackWithZerosWhenTwoNumber() {
+        var numberBuffer = createNumberBufferWithValues('0', '1');
+
+        numberBuffer.packWithZeros();
+        assertEquals("010000", numberBuffer.getList().get(0));
+    }
+
+    @Test
+    void shouldPackSixButNotTwoNext() {
+        var numberBuffer = createNumberBufferWithValues(
+            '0', '1', '2', '3', '4', '5'
+        );
+
+        assertFalse(numberBuffer.getList().isEmpty());
+        assertEquals(1, numberBuffer.getList().size());
+
+        numberBuffer.add('6');
+        numberBuffer.add('7');
+
+        assertEquals(1, numberBuffer.getList().size());
+    }
+
+    private NumberBuffer createNumberBufferWithValues(char... arrayChar) {
+        var numberBuffer = new NumberBuffer();
+
+        for (char value : arrayChar) {
+            numberBuffer.add(value);
+        }
+
+        return numberBuffer;
     }
 }
