@@ -1,5 +1,9 @@
 package br.study.mixing.base64;
 
+import br.study.mixing.base64.service.Base64DecoderService;
+import br.study.mixing.base64.service.Base64EncoderService;
+import lombok.RequiredArgsConstructor;
+
 /**
  * Implement base64 transformation
  *
@@ -21,7 +25,12 @@ package br.study.mixing.base64;
  * 1 - Take a base64 character sequence
  * 2 -
  */
+@RequiredArgsConstructor
 public class Base64Impl {
+
+    private final Base64EncoderService base64EncoderService;
+
+    private final Base64DecoderService base64DecoderService;
 
     public String encode(String input) throws Base64Exception {
         return null;
