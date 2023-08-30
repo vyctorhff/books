@@ -1,6 +1,7 @@
 package br.study.mixing.base64.grouping.impl;
 
 import br.study.mixing.base64.grouping.GrouppingBytes;
+import br.study.mixing.base64.grouping.buffers.NumberBuffer;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 

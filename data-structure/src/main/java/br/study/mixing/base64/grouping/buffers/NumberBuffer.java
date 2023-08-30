@@ -1,4 +1,4 @@
-package br.study.mixing.base64.grouping.impl;
+package br.study.mixing.base64.grouping.buffers;
 
 import java.util.ArrayList;
 import java.util.List;
