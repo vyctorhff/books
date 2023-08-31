@@ -22,18 +22,30 @@ class ConvertNumberAndBinaryTest {
     }
 
     @ParameterizedTest
-    @MethodSource("sourceConvertForResult")
+    @MethodSource("sourceConvertToBinaryForResult")
     void shouldConvertForResult(int value, String expected) {
         var result = this.sut.convertToBinary(value);
         assertEquals(expected, result);
     }
 
-    static Stream<Arguments> sourceConvertForResult() {
+    static Stream<Arguments> sourceConvertToBinaryForResult() {
         return Stream.of(
             Arguments.of(0, "00000000"),
             Arguments.of(1, "00000001"),
             Arguments.of(3, "00000011"),
             Arguments.of(255, "11111111")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("sourceConvertToNumberResult")
+    void shouldConvertToBinaryForResult(String binary, int expected) {
+        // TODO: IMPLEMENT IT
+    }
+
+    static Stream<Arguments> sourceConvertToNumberResult() {
+        return Stream.of(
+            Arguments.of()
         );
     }
 }
