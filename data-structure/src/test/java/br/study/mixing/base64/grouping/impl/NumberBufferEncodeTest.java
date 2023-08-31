@@ -1,5 +1,6 @@
 package br.study.mixing.base64.grouping.impl;
 
+import br.study.mixing.base64.grouping.buffers.NumberBuffer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -55,7 +56,7 @@ class NumberBufferTest {
     void shouldPackWithZerosWhenFourNumber() {
         var numberBuffer = createNumberBufferWithValues('0', '1', '2', '3');
 
-        numberBuffer.packWithZeros();
+        numberBuffer.adjustes();
         assertEquals("012300", numberBuffer.getList().get(0));
     }
 
@@ -63,7 +64,7 @@ class NumberBufferTest {
     void shouldPackWithZerosWhenTwoNumber() {
         var numberBuffer = createNumberBufferWithValues('0', '1');
 
-        numberBuffer.packWithZeros();
+        numberBuffer.adjustes();
         assertEquals("010000", numberBuffer.getList().get(0));
     }
 
