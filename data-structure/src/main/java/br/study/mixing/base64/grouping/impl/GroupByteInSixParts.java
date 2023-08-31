@@ -2,6 +2,7 @@ package br.study.mixing.base64.grouping.impl;
 
 import br.study.mixing.base64.grouping.GrouppingBytes;
 import br.study.mixing.base64.grouping.buffers.NumberBuffer;
+import br.study.mixing.base64.grouping.buffers.NumberBufferEncode;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,14 +20,14 @@ public class GroupByteInSixParts implements GrouppingBytes {
             throw new IllegalArgumentException("Could not group, invalid content");
         }
 
-        var numberBuffer = new NumberBuffer();
+        NumberBuffer numberBuffer = new NumberBufferEncode();
 
         for (char value : content.toCharArray()) {
             numberBuffer.add(value);
         }
 
         // if still remains something
-        numberBuffer.packWithZeros();
+        numberBuffer.adjustes();
         return String.join(" ", numberBuffer.getList());
     }
 }
