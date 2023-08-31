@@ -116,7 +116,7 @@ public class Complexity {
     private static double funcaoExponencial(int param) {
         /**
          * Função com tempo de execução com o número de valores elevado ao número de elementos
-         * Só é adimito para baixos número de eleementos, mas deve ser evitado a todo custo.
+         * Só é admito para baixos número de eleementos, mas deve ser evitado a ao máximo.
          *
          * Gráfico: curvado extremamente acentuado
          */
