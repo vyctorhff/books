@@ -24,7 +24,7 @@ public class DecodeInput {
             return Base64Padding.SINGLE;
         }
 
-        return Base64Padding.NODE;
+        return Base64Padding.NONE;
     }
 
     private char getLastCharacter() {
