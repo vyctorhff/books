@@ -1,5 +1,6 @@
 package br.study.mixing.base64.grouping.buffers;
 
+import br.study.mixing.base64.DecodeInput;
 import helpers.NumberBufferTestHelper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class NumberBufferDecodeTest {
@@ -73,10 +73,43 @@ class NumberBufferDecodeTest {
             ' ',
             'a', 'b', 'c', 'd', 'e', 'f',
             ' ',
-            'g', 'h', 'i', 'j'
+            'g', 'h', 'i', 'j', '0', '0'
         });
 
         assertEquals("012345ab", numberBuffer.getList().get(0));
         assertEquals("cdefghij", numberBuffer.getList().get(1));
+    }
+
+    @Test
+    void shouldThrowErrorIfNotZerosLeft() {
+        var numberBuffer = helper.createDecodeWithValues(new char[]{
+            '0', '1', '2', '3', '4', '5',
+            ' ',
+            'g', 'h', 'i', 'j', '*', '#'
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            numberBuffer.adjustes();
+        });
+    }
+
+    @Test
+    void shouldThrowErrorIfFourZerosWhenOnePadding() {
+        DecodeInput input = new DecodeInput("ScEaQB=");
+        var numberBuffer = helper.createDecodeWithValues(input, new char[]{
+            '0', '1', '2', '3', '4', '5',
+            ' ',
+            'g', 'h', '0', '0', '0', '0',
+        });
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            numberBuffer.adjustes();
+        });
+
+        assertEquals("number of padding is differente", exception.getMessage());
+    }
+
+    @Test
+    void shouldThrowErrorIfTwoZerosWhenTwoPaddingPadding() {
     }
 }

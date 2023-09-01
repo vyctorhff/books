@@ -7,6 +7,16 @@ import br.study.mixing.base64.grouping.buffers.NumberBufferEncode;
 
 public class NumberBufferTestHelper {
 
+    public NumberBuffer createDecodeWithValues(DecodeInput input, char... arrayChar) {
+        var numberBuffer = new NumberBufferDecode(input);
+
+        for (char value : arrayChar) {
+            numberBuffer.add(value);
+        }
+
+        return numberBuffer;
+    }
+
     public NumberBuffer createDecodeWithValues(char... arrayChar) {
         var decodeInput = new DecodeInput("");
         var numberBuffer = new NumberBufferDecode(decodeInput);

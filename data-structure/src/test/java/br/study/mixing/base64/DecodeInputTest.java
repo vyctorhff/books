@@ -22,7 +22,7 @@ class DecodeInputTest {
 
     static Stream<Arguments> souceBePaddingByParams() {
         return Stream.of(
-            Arguments.of("AjKenaER", Base64Padding.NODE),
+            Arguments.of("AjKenaER", Base64Padding.NONE),
             Arguments.of("AjKenaER=", Base64Padding.SINGLE),
             Arguments.of("AjKenaER==", Base64Padding.DOUBLE)
         );
