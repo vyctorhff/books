@@ -33,10 +33,11 @@ public class Base64Impl {
     private final Base64DecoderService base64DecoderService;
 
     public String encode(String input) throws Base64Exception {
-        return null;
+        return base64EncoderService.procss(input);
     }
 
     public String decode(String input) throws Base64Exception {
+        // TODO: implement it
         return null;
     }
 }
