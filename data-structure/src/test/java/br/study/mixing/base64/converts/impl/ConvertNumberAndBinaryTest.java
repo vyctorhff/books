@@ -40,12 +40,16 @@ class ConvertNumberAndBinaryTest {
     @ParameterizedTest
     @MethodSource("sourceConvertToNumberResult")
     void shouldConvertToBinaryForResult(String binary, int expected) {
-        // TODO: IMPLEMENT IT
+        var result = this.sut.convertToNumber(binary);
+        assertEquals(expected, result);
     }
 
     static Stream<Arguments> sourceConvertToNumberResult() {
         return Stream.of(
-            Arguments.of()
+            Arguments.of("00000000", 0),
+            Arguments.of("00000001", 1),
+            Arguments.of("00000011", 3),
+            Arguments.of("11111111", 255)
         );
     }
 }
