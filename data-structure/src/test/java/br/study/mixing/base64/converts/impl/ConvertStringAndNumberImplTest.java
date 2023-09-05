@@ -3,7 +3,6 @@ package br.study.mixing.base64.converts.impl;
 import br.study.mixing.base64.Base64Exception;
 import br.study.mixing.base64.table.TableInfo;
 import br.study.mixing.base64.table.unicode.UnicodeTable;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,12 +42,12 @@ class ConvertStringAndNumberImplTest {
             .thenReturn(UNICODE_INFO_OPT);
 
         int code = this.sut.convert(UNICODE_INFO.getCharacterAsString());
-        Assertions.assertEquals(UNICODE_INFO.getCodeAsInteger(), code);
+        assertEquals(UNICODE_INFO.getCodeAsInteger(), code);
     }
 
     @Test
     void shouldNotConvertStringToInteger() {
-        Assertions.assertThrows(Base64Exception.class, () -> {
+        assertThrows(Base64Exception.class, () -> {
             sut.convert("teste");
         });
     }
@@ -58,12 +59,12 @@ class ConvertStringAndNumberImplTest {
 
         String result = this.sut.unconvert(UNICODE_INFO.getCodeAsInteger());
 
-        Assertions.assertEquals(result, UNICODE_INFO_OPT.get().getCharacterAsString());
+        assertEquals(result, UNICODE_INFO_OPT.get().getCharacterAsString());
     }
 
     @Test
     void shouldNotConvertIntegerToString() {
-        Assertions.assertThrows(Base64Exception.class, () -> {
+        assertThrows(Base64Exception.class, () -> {
             sut.unconvert(-1);
         });
     }
