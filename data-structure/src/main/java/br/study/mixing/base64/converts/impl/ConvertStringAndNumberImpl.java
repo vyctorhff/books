@@ -2,16 +2,16 @@ package br.study.mixing.base64.converts.impl;
 
 import br.study.mixing.base64.Base64Exception;
 import br.study.mixing.base64.converts.ConvertStringAndNumber;
-import br.study.mixing.base64.table.unicode.UnicodeTable;
+import br.study.mixing.base64.table.TableList;
 
 /**
  * Using the ASC II(UNICODE), transform a character to a decimal.
  */
 public class ConvertStringAndNumberImpl implements ConvertStringAndNumber {
 
-    private UnicodeTable unicodeTable;
+    private TableList unicodeTable;
 
-    public ConvertStringAndNumberImpl(UnicodeTable unicodeTable) {
+    public ConvertStringAndNumberImpl(TableList unicodeTable) {
         this.unicodeTable = unicodeTable;
     }
 

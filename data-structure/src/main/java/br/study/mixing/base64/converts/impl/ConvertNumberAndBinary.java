@@ -18,7 +18,7 @@ public class ConvertNumberAndBinary {
 
     public int convertToNumber(String value) {
         if (StringUtils.isBlank(value) || (value.length() != BYTE_SIZE)) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Invalid to convert: " + value);
         }
 
         return Integer.parseInt(value, BASE_NUMBER_BINARY);
