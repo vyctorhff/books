@@ -1,6 +1,8 @@
 package br.study.mixing.base64.grouping;
 
+import java.util.List;
+
 public interface GrouppingBytes {
 
-    String process(String string);
+    List<String> process(String string);
 }

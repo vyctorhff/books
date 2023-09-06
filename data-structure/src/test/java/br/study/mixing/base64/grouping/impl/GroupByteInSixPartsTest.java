@@ -5,13 +5,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.platform.commons.util.StringUtils;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @ExtendWith(MockitoExtension.class)
 class GroupByteInSixPartsTest {
@@ -25,18 +25,20 @@ class GroupByteInSixPartsTest {
 
     @ParameterizedTest
     @MethodSource("sourceGroupParts")
-    void shouldGroupParts(String input, String expected) {
-        String result = sut.process(input);
+    void shouldGroupParts(String input, List<String> expected) {
+        List<String> result = sut.process(input);
 
-        assertTrue(StringUtils.isNotBlank(result));
-        assertEquals(expected, result);
+        assertFalse(result.isEmpty());
+        assertArrayEquals(expected.toArray(), result.toArray());
     }
 
     private static Stream<Arguments> sourceGroupParts() {
+        String zerosSix = "000000";
+
         return Stream.of(
-            Arguments.of("00000000", "000000 000000"),
-            Arguments.of("00000000 00000000", "000000 000000 000000"),
-            Arguments.of("00000000 00000000 00000000", "000000 000000 000000 000000")
+            Arguments.of("00000000", List.of(zerosSix, zerosSix)),
+            Arguments.of("00000000 00000000", List.of(zerosSix, zerosSix, zerosSix)),
+            Arguments.of("00000000 00000000 00000000", List.of(zerosSix, zerosSix, zerosSix, zerosSix))
         );
     }
 }

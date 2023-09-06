@@ -6,6 +6,8 @@ import br.study.mixing.base64.grouping.buffers.NumberBufferEncode;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 /**
  * Group 8 parts in 6 parts.
  * Ex:
@@ -14,8 +16,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 public class GroupByteInSixParts implements GrouppingBytes {
+
     @Override
-    public String process(String content) {
+    public List<String> process(String content) {
         if (StringUtils.isBlank(content)) {
             throw new IllegalArgumentException("Could not group, invalid content");
         }
@@ -28,6 +31,7 @@ public class GroupByteInSixParts implements GrouppingBytes {
 
         // if still remains something
         numberBuffer.adjustes();
-        return String.join(" ", numberBuffer.getList());
+//        return String.join(" ", numberBuffer.getList());
+        return numberBuffer.getList();
     }
 }
