@@ -33,7 +33,7 @@ public class Base64Impl {
     private final Base64DecoderService base64DecoderService;
 
     public String encode(String input) throws Base64Exception {
-        return base64EncoderService.procss(input);
+        return base64EncoderService.process(input);
     }
 
     public String decode(String input) throws Base64Exception {
