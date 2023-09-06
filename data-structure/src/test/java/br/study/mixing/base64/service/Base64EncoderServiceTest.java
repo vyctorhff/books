@@ -34,9 +34,7 @@ class Base64EncoderServiceTest {
     @BeforeEach
     void setUp() {
         this.grouping = new GroupByteInSixParts();
-
         this.convertStringAndNumber = new ConvertStringAndNumberImpl(new UnicodeTable());
-
         this.convertNumberAndBinary = new ConvertNumberAndBinary();
 
         sut = new Base64EncoderService(
@@ -49,12 +47,13 @@ class Base64EncoderServiceTest {
     @ParameterizedTest
     @MethodSource("sourceEncodeSuccessfuly")
     void shouldEncodeSuccessfuly(String input, String expect) throws Base64Exception {
-        var result = sut.procss(input);
+        var result = sut.process(input);
         assertEquals(expect, result);
     }
 
     private static Stream<Arguments> sourceEncodeSuccessfuly() {
         return Stream.of(
+            Arguments.of("vic", "dmlj"),
             Arguments.of("victor", "dmljdG9y")
         );
     }
