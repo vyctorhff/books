@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class DecodeInput {
 
-    private static final char PADDING_SYMBLO = '=';
+    public static final char PADDING_SYMBOL = '=';
 
     private String code;
 
@@ -14,13 +14,14 @@ public class DecodeInput {
     }
 
     public Base64Padding getPadding() {
-        var oneSymblo = PADDING_SYMBLO == this.getLastCharacter();
-        var secondSymblo = PADDING_SYMBLO == this.getSecondLastCharacter();
+        var oneSymbol = PADDING_SYMBOL == this.getLastCharacter();
+        var secondSymbol = PADDING_SYMBOL == this.getSecondLastCharacter();
 
-        if (oneSymblo && secondSymblo) {
+        if (oneSymbol && secondSymbol) {
             return Base64Padding.DOUBLE;
+        }
 
-        } else if (oneSymblo || secondSymblo) {
+        if (oneSymbol || secondSymbol) {
             return Base64Padding.SINGLE;
         }
 
