@@ -29,9 +29,7 @@ public class GroupByteInSixParts implements GrouppingBytes {
             numberBuffer.add(value);
         }
 
-        // if still remains something
         numberBuffer.adjustes();
-//        return String.join(" ", numberBuffer.getList());
         return numberBuffer.getList();
     }
 }
