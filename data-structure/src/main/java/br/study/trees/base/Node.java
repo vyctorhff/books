@@ -1,4 +1,4 @@
-package br.study.trees.cap7.base;
+package br.study.trees.base;
 
 public class Node<E> {
 

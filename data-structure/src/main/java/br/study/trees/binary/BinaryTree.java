@@ -1,6 +1,6 @@
-package br.study.trees.cap7.binary;
+package br.study.trees.binary;
 
-import br.study.trees.cap7.base.Node;
+import br.study.trees.base.Node;
 
 /**
  * Própria(ou cheias)
