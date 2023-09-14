@@ -13,7 +13,6 @@ import java.util.List;
 public class GroupSixPartsInBytes implements GrouppingBytes {
     @Override
     public List<String> process(String string) {
-        // TODO: implement it
-        return null;
+        throw new UnsupportedOperationException("not implement");
     }
 }

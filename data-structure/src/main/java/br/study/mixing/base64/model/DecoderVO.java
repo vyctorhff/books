@@ -33,18 +33,26 @@ public class DecoderVO {
         this.characertSixBits = new ArrayList<>();
     }
 
-    // REFACT: for functional programming
-    public void addLetterFromBinarySix(Optional<TableInfo> optTable) {
-        if (optTable.isEmpty()) {
-            throw new IllegalArgumentException("letter not valid: ");
-        }
+    public void addLetterFromBinarySix(Function<Integer, Optional<TableInfo>> function) {
+        getIntegerFromSixBits().forEach(value -> {
+            Optional<TableInfo> optTable = function.apply(value);
 
-        this.characertSixBits.add(optTable.get().getCharacterAsString());
+            if (optTable.isEmpty()) {
+                throw new IllegalArgumentException("letter not valid: ");
+            }
+
+            this.characertSixBits.add(optTable.get().getCharacterAsString());
+        });
     }
 
-    // REFACT: for functional programming
-    public void addNumberFromBinarySix(Integer binarySix) {
-        this.integerFromSixBits.add(binarySix);
+    public void addNumberFromBinarySix(Function<String, Integer> function) {
+        this.getGroupingSixBits().forEach(value -> {
+            var split = value.split(StringUtils.SPACE);
+
+            for (String fragment: split) {
+                this.integerFromSixBits.add(function.apply(fragment));
+            }
+        });
     }
 
     public void addBinarySixFromBinaryEigth(Function<String, List<String>> function) {

@@ -5,13 +5,9 @@ import br.study.mixing.base64.converts.ConvertStringAndNumber;
 import br.study.mixing.base64.converts.impl.ConvertNumberAndBinary;
 import br.study.mixing.base64.grouping.GrouppingBytes;
 import br.study.mixing.base64.model.DecoderVO;
-import br.study.mixing.base64.table.TableInfo;
 import br.study.mixing.base64.table.TableList;
 import br.study.mixing.base64.table.base64.Base64Table;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 public class Base64EncoderService {
@@ -44,21 +40,11 @@ public class Base64EncoderService {
 
     private void processLetterFromBinarySix(DecoderVO vo) {
         TableList table = new Base64Table();
-
-        vo.getIntegerFromSixBits().forEach(value -> {
-            Optional<TableInfo> optTable = table.findByCode(value);
-            vo.addLetterFromBinarySix(optTable);
-        });
+        vo.addLetterFromBinarySix(value -> table.findByCode(value));
     }
 
     private void processNumberFromBinarySix(DecoderVO vo) {
-        vo.getGroupingSixBits().forEach(value -> {
-            var split = value.split(StringUtils.SPACE);
-
-            for (String fragment: split) {
-                vo.addNumberFromBinarySix(this.convertNumberAndBinary.convertToNumber(fragment));
-            }
-        });
+        vo.addNumberFromBinarySix(value -> this.convertNumberAndBinary.convertToNumber(value));
     }
 
     private void processBinarySixFromBinaryEigth(DecoderVO vo) {

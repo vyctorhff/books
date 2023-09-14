@@ -37,7 +37,6 @@ public class Base64Impl {
     }
 
     public String decode(String input) throws Base64Exception {
-        // TODO: implement it
-        return null;
+        throw new UnsupportedOperationException("not implement");
     }
 }

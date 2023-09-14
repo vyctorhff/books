@@ -54,6 +54,7 @@ class Base64EncoderServiceTest {
     private static Stream<Arguments> sourceEncodeSuccessfuly() {
         return Stream.of(
             Arguments.of("vic", "dmlj"),
+            // TEST: add case with padding!
             Arguments.of("victor", "dmljdG9y")
         );
     }
