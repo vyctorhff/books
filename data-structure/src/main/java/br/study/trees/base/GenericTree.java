@@ -1,45 +1,60 @@
 package br.study.trees.base;
 
+import java.util.HashMap;
+
 public class GenericTree<E> {
 
-    public boolean isEmpty() {
-        return false;
+    private int size;
+
+    private final Node<E> root;
+
+    public GenericTree(Node<E> root) {
+        this.root = root;
+
+        if (!isEmpty()) {
+            this.size++;
+        }
+    }
+
+    public void add(Node<E> parent, Node<E> node) {
+        parent.getChildren().add(node);
+        this.size++;
     }
 
     public void replace() {
     }
 
-    public int size() {
-        return 0;
-    }
+    /**
+     * The number os parent until reach root
+     */
+    public int depth(Node<E> node) {
+        if (this.isEmpty()) {
+            throw new IllegalArgumentException("Invalid node to depth");
+        }
 
-    public Iterable<Position<E>> positions() {
-        return null;
-    }
+        if (this.size == 1) {
+            return 1;
+        }
 
-    public int depth() {
         return 0;
     }
 
     /**
      * The most depth in the tree
-     * @return
      */
-    public int heigth() {
+    public int heigth(Node<E> node) {
         return 0;
     }
 
-    /**
-     * parent first then children
-     * TODO: think to refact for a especific class
-     */
-    public void preorder() {}
+    public void visit(VisitAlgorithm<E> visit) {
+        visit.execute(this, new HashMap<>());
+    }
 
-    /**
-     * children first, then the parent
-     * TODO: think to refact for a especific class
-     */
-    public void posorder() {}
+    public int size() {
+        return size;
+    }
 
-    // exercices: sum directores length; print elements
+    public boolean isEmpty() {
+        return this.root == null;
+    }
 }

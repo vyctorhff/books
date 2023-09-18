@@ -6,6 +6,4 @@ import lombok.Data;
 public class Position<E> {
 
     private int index;
-
-    private E element;
 }
