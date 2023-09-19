@@ -1,15 +1,27 @@
 package br.study.trees.base;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 
 public class GenericTree<E> {
 
+    @Getter
     private int size;
 
+    @Getter
     private final Node<E> root;
+    private final DepthGenericTree<E> depth;
+    private final HeightGenericTree<E> height;
 
-    public GenericTree(Node<E> root) {
+    public GenericTree(
+        Node<E> root,
+        DepthGenericTree<E> depth,
+        HeightGenericTree height
+    ) {
         this.root = root;
+        this.depth = depth;
+        this.height = height;
 
         if (!isEmpty()) {
             this.size++;
@@ -28,22 +40,14 @@ public class GenericTree<E> {
      * The number os parent until reach root
      */
     public int depth(Node<E> node) {
-        if (this.isEmpty()) {
-            throw new IllegalArgumentException("Invalid node to depth");
-        }
-
-        if (this.size == 1) {
-            return 1;
-        }
-
-        return 0;
+        return depth.execute(this, node);
     }
 
     /**
      * The most depth in the tree
      */
-    public int heigth(Node<E> node) {
-        return 0;
+    public int height(Node<E> node) {
+        return height.execute(node);
     }
 
     public void visit(VisitAlgorithm<E> visit) {
