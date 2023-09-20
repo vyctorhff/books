@@ -1,5 +1,6 @@
 package br.study.trees.base;
 
+import br.study.helpers.GenericTreeHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +13,14 @@ class DepthGenericTreeTest {
 
     private HeightGenericTree<Integer> height;
 
+    private GenericTreeHelper helper;
+
     @BeforeEach
     void setUp() {
         this.depth = new DepthGenericTree<>();
         this.height = new HeightGenericTree();
+
+        this.helper = new GenericTreeHelper();
     }
 
     @Test
@@ -37,25 +42,16 @@ class DepthGenericTreeTest {
 
     @Test
     void shouldDepthForNodeInLevalOne() {
-        var root = Node.createRoot(7);
-        var tree = new GenericTree<Integer>(root, depth, height);
-
-        Node<Integer> nodeLevalOne = new Node<>(root, 8);
-        tree.add(root, nodeLevalOne);
+        GenericTree<Integer> tree = helper.createTreeLevelOne(7, 8);
+        Node<Integer> nodeLevalOne = tree.getRoot().getChildren().get(0);
 
         assertEquals(1, depth.execute(tree, nodeLevalOne));
     }
 
     @Test
     void shouldDepthForNodeInLevalTwo() {
-        var root = Node.createRoot(7);
-        var tree = new GenericTree<Integer>(root, depth, height);
-
-        Node<Integer> nodeLevalOne = new Node<>(root, 8);
-        tree.add(root, nodeLevalOne);
-
-        Node<Integer> nodeLevalTwo = new Node<>(nodeLevalOne, 9);
-        tree.add(nodeLevalOne, nodeLevalTwo);
+        GenericTree<Integer> tree = helper.createTreeLevelTwo(7, 8, 9);
+        Node<Integer> nodeLevalTwo = tree.getRoot().getChildren().get(0).getChildren().get(0);
 
         assertEquals(2, depth.execute(tree, nodeLevalTwo));
     }

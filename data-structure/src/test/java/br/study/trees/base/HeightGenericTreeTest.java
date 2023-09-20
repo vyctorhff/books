@@ -1,5 +1,6 @@
 package br.study.trees.base;
 
+import br.study.helpers.GenericTreeHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,9 +14,12 @@ class HeightGenericTreeTest {
 
     private HeightGenericTree<Integer> height;
 
+    private GenericTreeHelper helper;
+
     @BeforeEach
     void setUp() {
         this.height = new HeightGenericTree();
+        this.helper = new GenericTreeHelper<Integer>();
     }
 
     @Test
@@ -33,23 +37,14 @@ class HeightGenericTreeTest {
 
     @Test
     void shouldHeightForNodeLevelOne() {
-        var root = Node.createRoot(7);
-
-        Node<Integer> nodeLevalOne = new Node<>(root, 8);
-        root.addSon(nodeLevalOne);
+        var root = helper.createNodeLevelOne(7, 8);
 
         assertEquals(1, height.execute(root));
     }
 
     @Test
     void shouldHeightForNodeLevelTwo() {
-        var root = Node.createRoot(7);
-
-        Node<Integer> nodeLevalOne = new Node<>(root, 8);
-        root.addSon(nodeLevalOne);
-
-        Node<Integer> nodeLevalTwo = new Node<>(nodeLevalOne, 9);
-        nodeLevalOne.addSon(nodeLevalTwo);
+        var root = helper.createNodeLevelTwo(7, 8, 9);
 
         assertEquals(2, height.execute(root));
     }

@@ -31,7 +31,7 @@ public class GenericTree<E> {
     }
 
     public void add(Node<E> parent, Node<E> node) {
-        parent.getChildren().add(node);
+        parent.addSon(node);
         this.size++;
     }
 
