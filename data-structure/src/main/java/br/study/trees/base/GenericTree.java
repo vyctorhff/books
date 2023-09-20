@@ -11,7 +11,9 @@ public class GenericTree<E> {
 
     @Getter
     private final Node<E> root;
+
     private final DepthGenericTree<E> depth;
+
     private final HeightGenericTree<E> height;
 
     public GenericTree(

@@ -10,13 +10,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Node<E> {
 
-    private Node<E> parent;
-
-    private List<Node<E>> children;
+    private boolean isRoot;
 
     private E element;
 
-    private boolean isRoot;
+    private Node<E> parent;
+
+    private List<Node<E>> children;
 
     public Node(Node<E> parent, E element) {
         this(parent, element, new ArrayList<>());
@@ -33,6 +33,10 @@ public class Node<E> {
         this.children = children;
     }
 
+    public void addSon(Node<E> node) {
+        this.getChildren().add(node);
+    }
+
     public boolean isRoot() {
         return isRoot;
     }
@@ -47,5 +51,10 @@ public class Node<E> {
 
     public static <E> Node<E> createRoot(E element) {
         return new Node<>(element, true);
+    }
+
+    @Override
+    public String toString() {
+        return "Node(%s)".formatted(element);
     }
 }
