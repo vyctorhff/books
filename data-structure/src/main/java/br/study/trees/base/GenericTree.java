@@ -1,8 +1,10 @@
 package br.study.trees.base;
 
 import lombok.Getter;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class GenericTree<E> {
 
@@ -36,6 +38,7 @@ public class GenericTree<E> {
     }
 
     public void replace() {
+        throw new NotImplementedException();
     }
 
     /**
@@ -52,8 +55,11 @@ public class GenericTree<E> {
         return height.execute(node);
     }
 
-    public void visit(VisitAlgorithm<E> visit) {
-        visit.execute(this, new HashMap<>());
+    public Map<Object, Object> visit(VisitAlgorithm<E> visit) {
+        Map<Object, Object> context = new HashMap<>();
+        visit.execute(this, context);
+
+        return context;
     }
 
     public int size() {

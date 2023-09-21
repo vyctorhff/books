@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @NoArgsConstructor
@@ -56,5 +57,21 @@ public class Node<E> {
     @Override
     public String toString() {
         return "Node(%s)".formatted(element);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node<?> node = (Node<?>) o;
+        return isRoot == node.isRoot &&
+            Objects.equals(element, node.element) &&
+            Objects.equals(parent, node.parent) &&
+            Objects.equals(children, node.children);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isRoot, element, parent, children);
     }
 }

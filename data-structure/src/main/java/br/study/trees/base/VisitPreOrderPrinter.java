@@ -5,10 +5,10 @@ import java.util.Map;
 /**
  * parent first then children
  */
-public class VisitPreOrderString implements VisitAlgorithm<String> {
+public class VisitPreOrderPrinter implements VisitAlgorithm<String> {
 
     @Override
-    public void execute(GenericTree<String> tree, Map<Object, Object> contect) {
+    public void execute(GenericTree<String> tree, Map<Object, Object> context) {
         // TODO: implement it
     }
 }
