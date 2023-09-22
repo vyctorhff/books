@@ -1,13 +1,14 @@
 package br.study.trees.base;
 
 import br.study.helpers.GenericTreeHelper;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith({MockitoExtension.class})
 class VisitPreOrderPrinterTest {
@@ -34,10 +35,11 @@ class VisitPreOrderPrinterTest {
     @Test
     void shouldVisitSuccessfully() {
         var tree = createSimpleMathTree();
+        var expect = "-+22+333";
 
-        var expect = "2+2-3+3+3";
         Map<Object, Object> context = tree.visit(preOrderPrinter);
-        Assertions.assertEquals(expect, context.get("preOrderPrinter"));
+
+        assertEquals(expect, context.get("preOrderPrinter"));
     }
 
     private GenericTree<String> createSimpleMathTree() {
@@ -48,13 +50,13 @@ class VisitPreOrderPrinterTest {
         Node<String> root = tree.getRoot();
 
         Node<String> nodePlusLeft = new Node<>(root, PLUS_SYMBLE);
-        nodePlusLeft.addSon(new Node<>(nodePlusLeft, "2"));
-        nodePlusLeft.addSon(new Node<>(nodePlusLeft, "2"));
+        nodePlusLeft.addSon("2");
+        nodePlusLeft.addSon("2");
 
         Node<String> nodePlusRight = new Node<>(root, PLUS_SYMBLE);
-        nodePlusRight.addSon(new Node<>(nodePlusRight, "3"));
-        nodePlusRight.addSon(new Node<>(nodePlusRight, "3"));
-        nodePlusRight.addSon(new Node<>(nodePlusRight, "3"));
+        nodePlusRight.addSon("3");
+        nodePlusRight.addSon("3");
+        nodePlusRight.addSon("3");
 
         tree.add(root, nodePlusLeft);
         tree.add(root, nodePlusRight);
