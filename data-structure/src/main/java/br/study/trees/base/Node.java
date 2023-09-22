@@ -42,10 +42,6 @@ public class Node<E> {
         this.getChildren().add(new Node<E>(this, element));
     }
 
-    public boolean isRoot() {
-        return isRoot;
-    }
-
     public boolean isInternal() {
         return !this.isExternal();
     }
