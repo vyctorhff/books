@@ -38,6 +38,10 @@ public class Node<E> {
         this.getChildren().add(node);
     }
 
+    public void addSon(E element) {
+        this.getChildren().add(new Node<E>(this, element));
+    }
+
     public boolean isRoot() {
         return isRoot;
     }
