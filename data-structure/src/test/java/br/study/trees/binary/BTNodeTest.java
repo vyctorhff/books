@@ -1,7 +1,6 @@
 package br.study.trees.binary;
 
 import helpers.trees.BinaryTreeHelper;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -52,7 +51,11 @@ class BTNodeTest {
     }
 
     @Test
-    void shouldNodeBeProprio() {
-        Assertions.fail();
+    void shouldNodeBeProprioTrue() {
+        var root = helper.createNodeWithLeftAndRight(1, 2, 3);
+        assertTrue(root.isNodeProprio());
+
+        root = BTNode.createRoot(1);
+        assertTrue(root.isNodeProprio());
     }
 }

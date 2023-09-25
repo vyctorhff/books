@@ -1,6 +1,5 @@
 package br.study.trees.binary;
 
-import br.study.trees.base.Node;
 import org.apache.commons.lang3.NotImplementedException;
 
 /**
@@ -9,9 +8,9 @@ import org.apache.commons.lang3.NotImplementedException;
  */
 public class BinaryTree<E> {
 
-    private Node<E> root;
+    private BTNode<E> root;
 
-    public BinaryTree(Node<E> root) {
+    public BinaryTree(BTNode<E> root) {
         this.root = root;
     }
 
@@ -19,11 +18,11 @@ public class BinaryTree<E> {
         throw new NotImplementedException();
     }
 
-    public boolean isPropria() {
-        return false;
-    }
-
     public int size() {
         return 0;
+    }
+
+    public boolean isPropria() {
+        return false;
     }
 }
