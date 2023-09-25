@@ -1,6 +1,6 @@
 package br.study.trees.base;
 
-import br.study.helpers.GenericTreeHelper;
+import helpers.trees.GenericTreeHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
