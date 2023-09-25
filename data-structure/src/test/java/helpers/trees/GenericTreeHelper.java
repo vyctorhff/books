@@ -1,4 +1,4 @@
-package br.study.helpers;
+package helpers.trees;
 
 import br.study.trees.base.DepthGenericTree;
 import br.study.trees.base.GenericTree;
