@@ -10,8 +10,11 @@ public class BinaryTree<E> {
 
     private BTNode<E> root;
 
-    public BinaryTree(BTNode<E> root) {
+    private final BTPropria<E> checkPropria;
+
+    public BinaryTree(BTNode<E> root, BTPropria<E> checkPropria) {
         this.root = root;
+        this.checkPropria = checkPropria;
     }
 
     public void replace() {
@@ -23,6 +26,6 @@ public class BinaryTree<E> {
     }
 
     public boolean isPropria() {
-        return false;
+        return this.checkPropria.check(this.root);
     }
 }

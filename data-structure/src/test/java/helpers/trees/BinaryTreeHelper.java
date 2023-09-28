@@ -1,6 +1,7 @@
 package helpers.trees;
 
 import br.study.trees.binary.BTNode;
+import br.study.trees.binary.BTPropria;
 import br.study.trees.binary.BinaryTree;
 
 public class BinaryTreeHelper<E> {
@@ -29,6 +30,6 @@ public class BinaryTreeHelper<E> {
 
     public BinaryTree<E> createTreeWithRoot(E element) {
         var root = BTNode.createRoot(element);
-        return new BinaryTree<E> (root);
+        return new BinaryTree<E>(root, new BTPropria<>());
     }
 }

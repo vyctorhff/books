@@ -20,7 +20,8 @@ class BinaryTreeTest {
     }
 
     @Test
-    void shouldBePropria() {
-        Assertions.fail();
+    void shouldBePropriaWithOneNode() {
+        BinaryTree<Integer> tree = helper.createTreeWithRoot(1);
+        Assertions.assertTrue(tree.isPropria());
     }
 }
