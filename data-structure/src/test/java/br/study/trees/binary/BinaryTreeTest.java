@@ -20,8 +20,14 @@ class BinaryTreeTest {
     }
 
     @Test
-    void shouldBePropriaWithOneNode() {
+    void shouldBePropriaWithNoneSons() {
         BinaryTree<Integer> tree = helper.createTreeWithRoot(1);
+        Assertions.assertTrue(tree.isPropria());
+    }
+
+    @Test
+    void shouldBePropriaWithBothSons() {
+        BinaryTree<Integer> tree = helper.createTreeWithRoot(1, 2, 3);
         Assertions.assertTrue(tree.isPropria());
     }
 }

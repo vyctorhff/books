@@ -51,11 +51,26 @@ class BTNodeTest {
     }
 
     @Test
-    void shouldNodeBeProprioTrue() {
+    void shouldNodeWithTwoSonsBeProprioTrue() {
         var root = helper.createNodeWithLeftAndRight(1, 2, 3);
         assertTrue(root.isNodeProprio());
+    }
 
-        root = BTNode.createRoot(1);
+    @Test
+    void shouldNodeEmptyBePropriaTrue() {
+        var root = BTNode.createRoot(1);
         assertTrue(root.isNodeProprio());
+    }
+
+    @Test
+    void shouldNodeWithRightSonOnlyBePropriaFalse() {
+        var root = helper.createNodeWithRight(1, 2);
+        assertFalse(root.isNodeProprio());
+    }
+
+    @Test
+    void shouldNodeWithLeftSonOnlyBePropriaFalse() {
+        var root = helper.createNodeWithLeft(1, 2);
+        assertFalse(root.isNodeProprio());
     }
 }

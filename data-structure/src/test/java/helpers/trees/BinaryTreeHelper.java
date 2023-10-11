@@ -32,4 +32,13 @@ public class BinaryTreeHelper<E> {
         var root = BTNode.createRoot(element);
         return new BinaryTree<E>(root, new BTPropria<>());
     }
+
+    public BinaryTree<E> createTreeWithRoot(E element, E elementLeft, E elementRith) {
+        var root = BTNode.createRoot(element);
+
+        root.setLeft(new BTNode<>(root, elementLeft));
+        root.setRight(new BTNode<>(root, elementRith));
+
+        return new BinaryTree<E>(root, new BTPropria<>());
+    }
 }
