@@ -41,4 +41,11 @@ public class BinaryTreeHelper<E> {
 
         return new BinaryTree<E>(root, new BTPropria<>());
     }
+
+    public BinaryTree<E> createTreeWithRight(E element, E elementRith) {
+        var root = BTNode.createRoot(element);
+        root.setRight(new BTNode<>(root, elementRith));
+
+        return new BinaryTree<E>(root, new BTPropria<>());
+    }
 }
