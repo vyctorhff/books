@@ -15,10 +15,14 @@ public class BTPropria<E> {
     }
 
     private boolean helper(BTNode<E> node) {
-        if (node.isNodeProprio()) {
+        if (node.isExternal()) {
             return true;
         }
 
-        return helper(node.getLeft()) && helper(node.getRight());
+        if (node.hasBothSides()) {
+            return helper(node.getLeft()) && helper(node.getRight());
+        }
+
+        return false;
     }
 }

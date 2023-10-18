@@ -43,10 +43,11 @@ public class BTNode<E> {
     }
 
     public boolean isNodeProprio() {
-        boolean hasBothSides = hasRightNode() && hasLeftNode();
-        boolean hasNoneSides = isExternal();
+        return hasBothSides() || isExternal();
+    }
 
-        return hasNoneSides || hasBothSides;
+    public boolean hasBothSides() {
+        return hasRightNode() && hasLeftNode();
     }
 
     public boolean hasRightNode() {
