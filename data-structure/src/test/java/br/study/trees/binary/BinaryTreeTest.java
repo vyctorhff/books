@@ -1,7 +1,6 @@
 package br.study.trees.binary;
 
 import helpers.trees.BinaryTreeHelper;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,6 +41,7 @@ class BinaryTreeTest {
 
     @Test
     void shouldBeNotProprieWithLeftSon() {
-        Assertions.fail();
+        BinaryTree<Integer> tree = helper.createTreeWithLeft(1, 3);
+        assertFalse(tree.isPropria());
     }
 }

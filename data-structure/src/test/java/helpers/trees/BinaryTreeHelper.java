@@ -48,4 +48,11 @@ public class BinaryTreeHelper<E> {
 
         return new BinaryTree<E>(root, new BTPropria<>());
     }
+
+    public BinaryTree<E> createTreeWithLeft(E element, E elementLeft) {
+        var root = BTNode.createRoot(element);
+        root.setLeft(new BTNode<>(root, elementLeft));
+
+        return new BinaryTree<E>(root, new BTPropria<>());
+    }
 }
