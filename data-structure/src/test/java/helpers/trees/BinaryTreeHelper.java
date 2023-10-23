@@ -2,6 +2,7 @@ package helpers.trees;
 
 import br.study.trees.binary.BTNode;
 import br.study.trees.binary.BTPropria;
+import br.study.trees.binary.BTSize;
 import br.study.trees.binary.BinaryTree;
 
 public class BinaryTreeHelper<E> {
@@ -30,7 +31,7 @@ public class BinaryTreeHelper<E> {
 
     public BinaryTree<E> createTreeWithRoot(E element) {
         var root = BTNode.createRoot(element);
-        return new BinaryTree<E>(root, new BTPropria<>());
+        return createTree(root);
     }
 
     public BinaryTree<E> createTreeWithRoot(E element, E elementLeft, E elementRith) {
@@ -39,20 +40,24 @@ public class BinaryTreeHelper<E> {
         root.setLeft(new BTNode<>(root, elementLeft));
         root.setRight(new BTNode<>(root, elementRith));
 
-        return new BinaryTree<E>(root, new BTPropria<>());
+        return createTree(root);
     }
 
     public BinaryTree<E> createTreeWithRight(E element, E elementRith) {
         var root = BTNode.createRoot(element);
         root.setRight(new BTNode<>(root, elementRith));
 
-        return new BinaryTree<E>(root, new BTPropria<>());
+        return createTree(root);
     }
 
     public BinaryTree<E> createTreeWithLeft(E element, E elementLeft) {
         var root = BTNode.createRoot(element);
         root.setLeft(new BTNode<>(root, elementLeft));
 
-        return new BinaryTree<E>(root, new BTPropria<>());
+        return createTree(root);
+    }
+
+    private BinaryTree<E> createTree(BTNode<E> root) {
+        return new BinaryTree<E>(root, new BTPropria<>(), new BTSize<>());
     }
 }

@@ -8,11 +8,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith({MockitoExtension.class})
 class BinaryTreeTest {
-
-    private BinaryTree<String> sut;
 
     private BinaryTreeHelper helper;
 
@@ -43,5 +43,23 @@ class BinaryTreeTest {
     void shouldBeNotProprieWithLeftSon() {
         BinaryTree<Integer> tree = helper.createTreeWithLeft(1, 3);
         assertFalse(tree.isPropria());
+    }
+
+    @Test
+    void shouldSizeOnlyWithRoot() {
+        BinaryTree<Integer> tree = helper.createTreeWithRoot(1);
+        assertEquals(1, tree.size());
+    }
+
+    @Test
+    void shouldSizeWithTwoElements() {
+        BinaryTree<Integer> tree = helper.createTreeWithRight(1, 2);
+        assertEquals(2, tree.size());
+    }
+
+    @Test
+    void shouldSizeWithTreeElements() {
+        BinaryTree<Integer> tree = helper.createTreeWithRoot(1, 2, 3);
+        assertEquals(3, tree.size());
     }
 }
