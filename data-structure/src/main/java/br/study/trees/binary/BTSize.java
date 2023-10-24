@@ -6,6 +6,10 @@ package br.study.trees.binary;
 public class BTSize<E> {
     
     public int execute(BTNode<E> node) {
-        return 0;
+        if (node == null || node.getElement() == null) {
+            return 0;
+        }
+
+        return 1 + execute(node.getLeft()) + execute(node.getRight());
     }
 }

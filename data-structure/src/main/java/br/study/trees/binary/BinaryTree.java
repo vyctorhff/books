@@ -10,6 +10,7 @@ public class BinaryTree<E> {
 
     private BTSize<E> size;
 
+    // TODO: extract interfaces
     public BinaryTree(BTNode<E> root, BTPropria<E> checkPropria, BTSize<E> size) {
         this.root = root;
 
