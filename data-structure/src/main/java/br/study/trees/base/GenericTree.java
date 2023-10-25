@@ -21,7 +21,7 @@ public class GenericTree<E> {
     public GenericTree(
         Node<E> root,
         DepthGenericTree<E> depth,
-        HeightGenericTree height
+        HeightGenericTree<E> height
     ) {
         this.root = root;
         this.depth = depth;
