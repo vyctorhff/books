@@ -44,6 +44,9 @@ public class CountryPosOrderPrinterTest {
 
         this.sut.execute(tree, context);
 
+        System.out.println(context.get("result"));
         Assertions.assertNotNull(context.get("result"));
+        
+        Assertions.fail("not check yet");
     }
 }
