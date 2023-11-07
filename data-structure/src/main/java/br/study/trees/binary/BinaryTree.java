@@ -22,6 +22,10 @@ public class BinaryTree<E> {
         throw new NotImplementedException();
     }
 
+    public void balance() {
+        throw new NotImplementedException();
+    }
+
     public int size() {
         return this.size.execute(this.root);
     }
