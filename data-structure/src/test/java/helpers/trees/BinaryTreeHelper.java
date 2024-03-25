@@ -58,6 +58,11 @@ public class BinaryTreeHelper<E> {
     }
 
     private BinaryTree<E> createTree(BTNode<E> root) {
-        return new BinaryTree<E>(root, new BTPropria<>(), new BTSize<>());
+        var bt = new BinaryTree<E>(root);
+
+        bt.setSize(new BTSize<>());
+        bt.setCheckPropria(new BTPropria<>());
+
+        return bt;
     }
 }
